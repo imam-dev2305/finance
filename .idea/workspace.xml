@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="d8f68ed7-5cb8-4928-a7e9-5b5f1f61f16d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -217,7 +218,7 @@
       <workItem from="1615081612491" duration="1299000" />
       <workItem from="1615447124965" duration="1221000" />
       <workItem from="1615465483576" duration="27000" />
-      <workItem from="1615465996803" duration="527000" />
+      <workItem from="1615465996803" duration="1077000" />
     </task>
     <servers />
   </component>
@@ -229,6 +230,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="25" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1614041186394" />
+    <state x="457" y="174" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1615466882354">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="457" y="174" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1615466882354" />
     <state x="413" y="122" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614041239291">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
