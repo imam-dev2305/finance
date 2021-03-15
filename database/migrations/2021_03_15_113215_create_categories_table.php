@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateBukuBesarsTable extends Migration
+class CreateCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,11 @@ class CreateBukuBesarsTable extends Migration
      */
     public function up()
     {
-        Schema::create('buku_besars', function (Blueprint $table) {
-            $table->id();
+        Schema::create('categories', function (Blueprint $table) {
+            $table->char('category_id', 5)->primary();
+            $table->string('category_name', 25);
+            $table->string('category_icon', 25);
+            $table->string('category_color', 10);
             $table->timestamps();
         });
     }
@@ -26,6 +29,6 @@ class CreateBukuBesarsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('buku_besars');
+        Schema::dropIfExists('categories');
     }
 }

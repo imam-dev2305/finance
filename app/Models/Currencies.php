@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\Journal;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BukuBesarModel extends Model
+class Currencies extends Model
 {
     use HasFactory;
 }

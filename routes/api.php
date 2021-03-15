@@ -22,18 +22,5 @@ Route::middleware(['auth:sanctum', 'json.response', 'cors'])->group(function () 
     Route::get('isAuthenticated', function () {
         return ["message" => "Authenticated"];
     });
-    Route::prefix('journal')->group(function () {
-        Route::get('/list-account', [\App\Http\Controllers\api\module\journal\AccountController::class, 'get']);
-    });
-    Route::prefix('sub-journal')->group(function () {
-        Route::get('/list-account', [\App\Http\Controllers\api\module\journal\SubAccountController::class, 'get']);
-        Route::get('/get-account/{id}', [\App\Http\Controllers\api\module\journal\SubAccountController::class, 'id']);
-        Route::post('/save-account', [\App\Http\Controllers\api\module\journal\SubAccountController::class, 'save']);
-        Route::post('/edit-account', [\App\Http\Controllers\api\module\journal\SubAccountController::class, 'update']);
-        Route::post('/delete-account', [\App\Http\Controllers\api\module\journal\SubAccountController::class, 'delete']);
-    });
-    Route::prefix('transaction')->group(function () {
-        Route::post('/list-transaction', [\App\Http\Controllers\api\module\journal\TransactionController::class, 'get']);
-        Route::post('/save-transaction', [\App\Http\Controllers\api\module\journal\TransactionController::class, 'filter_action']);
-    });
+
 });

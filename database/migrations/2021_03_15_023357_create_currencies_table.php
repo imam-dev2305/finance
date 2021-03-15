@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateJournalAccountsTable extends Migration
+class CreateCurrenciesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateJournalAccountsTable extends Migration
      */
     public function up()
     {
-        Schema::create('journal_accounts', function (Blueprint $table) {
-            $table->char('journal_account_id', 1)->primary();
-            $table->string('journal_account_name', 50);
+        Schema::create('currencies', function (Blueprint $table) {
+            $table->char('currency_id', 3)->primary();
+            $table->string('currency_name');
             $table->timestamps();
         });
     }
@@ -27,6 +27,6 @@ class CreateJournalAccountsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('journal_accounts');
+        Schema::dropIfExists('currencies');
     }
 }
