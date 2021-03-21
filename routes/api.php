@@ -30,4 +30,11 @@ Route::middleware(['auth:sanctum', 'json.response', 'cors'])->group(function () 
         Route::post('edit', [\App\Http\Controllers\Api\AccountsController::class, 'edit']);
         Route::post('delete', [\App\Http\Controllers\Api\AccountsController::class, 'delete']);
     });
+
+    Route::prefix('categories')->group(function () {
+        Route::get('get', [\App\Http\Controllers\Api\CategoriesUserController::class, 'get']);
+        Route::post('save', [\App\Http\Controllers\Api\CategoriesUserController::class, 'save']);
+        Route::post('edit', [\App\Http\Controllers\Api\CategoriesUserController::class, 'edit']);
+        Route::post('delete', [\App\Http\Controllers\Api\CategoriesUserController::class, 'delete']);
+    });
 });

@@ -3,18 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="d8f68ed7-5cb8-4928-a7e9-5b5f1f61f16d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/721b4e11-eb18-4da0-be17-c312d4602bc8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/721b4e11-eb18-4da0-be17-c312d4602bc8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jurnal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jurnal.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AccountsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AccountsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Accounts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Accounts.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Categories.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_15_011951_create_accounts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_15_011951_create_accounts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_15_113215_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_15_113215_create_categories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_15_115045_create_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_15_115045_create_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_20_025527_create_categories_subs_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_20_025527_create_categories_subs_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_20_030041_create_categories_sub_custom_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_20_030041_create_categories_sub_custom_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -60,14 +54,7 @@
         <item name="financial@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="financial: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-        <item name="account_types: table" type="dbc44a63:MariaImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="financial@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="financial: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-        <item name="accounts: table" type="dbc44a63:MariaImplModel$Table" />
+        <item name="categories: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -82,6 +69,13 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="financial: schema" type="ebfa3cd1:MariaImplModel$Schema" />
         <item name="categories_subs_customs: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="financial@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="financial: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="users: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -288,7 +282,8 @@
       <workItem from="1616063128007" duration="311000" />
       <workItem from="1616199720694" duration="3666000" />
       <workItem from="1616210733332" duration="479000" />
-      <workItem from="1616211242184" duration="13560000" />
+      <workItem from="1616211242184" duration="15137000" />
+      <workItem from="1616286757020" duration="5794000" />
     </task>
     <servers />
   </component>
@@ -304,10 +299,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="457" y="174" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1615466882354" />
-    <state x="413" y="122" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1614041239291">
+    <state x="413" y="122" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616289908805">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="122" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1614041239291" />
+    <state x="413" y="122" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1616289908805" />
     <state width="905" height="179" key="GridCell.Tab.0.bottom" timestamp="1616218969715">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -340,17 +335,21 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="484" y="197" width="398" height="330" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1366.728@0.0.1366.728" timestamp="1616209565424" />
-    <state x="392" y="14" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1616212306087">
+    <state x="392" y="14" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1616292348455">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="392" y="14" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1616212306087" />
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1616211242392">
+    <state x="392" y="14" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1616292348455" />
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1616286759050">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1616211242392" />
+    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1616286759050" />
     <state x="390" y="120" width="586" height="488" key="find.popup" timestamp="1614600011754">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="390" y="120" width="586" height="488" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1614600011754" />
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1616288690843">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1616288690843" />
   </component>
 </project>

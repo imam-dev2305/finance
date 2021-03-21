@@ -14,7 +14,7 @@ class CreateCategoriesSubsTable extends Migration
     public function up()
     {
         Schema::create('categories_subs', function (Blueprint $table) {
-            $table->char('category_sub_id', 4);
+            $table->char('category_sub_id', 4)->primary();
             $table->string('category_sub_name', 25);
             $table->char('category_id', 2);
             $table->string('category_icon', 25);

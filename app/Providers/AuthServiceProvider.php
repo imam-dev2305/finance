@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Policies\AccountPolicy;
+use App\Policies\CategoryPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -29,5 +30,9 @@ class AuthServiceProvider extends ServiceProvider
         // Accounts
         Gate::define('update-accounts', [AccountPolicy::class, 'update']);
         Gate::define('delete-accounts', [AccountPolicy::class, 'delete']);
+
+        // Categories
+        Gate::define('update-categories', [CategoryPolicy::class, 'update']);
+        Gate::define('delete-categories', [CategoryPolicy::class, 'delete']);
     }
 }

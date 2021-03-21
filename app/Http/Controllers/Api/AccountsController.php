@@ -52,15 +52,15 @@ class AccountsController extends Controller
     }
 
     function delete(Request $request) {
-        $validator = Validator::make($request->all(), [
-            'account_id' => [
-                'exists:accounts'
-            ]
-        ]);
-        if ($validator->fails()) {
-            return ["status" => 500, "message" => $validator->errors()];
-        }
-        $accounts = Accounts::find($request->account_id);
+//        $validator = Validator::make($request->all(), [
+//            'account_id' => [
+//                'exists:accounts'
+//            ]
+//        ]);
+//        if ($validator->fails()) {
+//            return ["status" => 500, "message" => $validator->errors()];
+//        }
+        $accounts = Accounts::findOrFail($request->account_id);
         if (!Gate::allows('delete-accounts', $accounts)) {
             return ["status" => 403, "message" => "You don't have permission to perform action"];
         }
