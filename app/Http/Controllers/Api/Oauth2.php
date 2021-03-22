@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Ramsey\Uuid\Uuid;
 
 class Oauth2 extends Controller
 {
@@ -44,6 +45,7 @@ class Oauth2 extends Controller
 
     function regis(Request $request) {
         $user = new User();
+        $user->user_id = Uuid::uuid1();
         $user->name = $request->name;
         $user->email = $request->email;
         $user->password = Hash::make($request->password);

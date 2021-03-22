@@ -12,4 +12,5 @@ class CategoriesSub extends Model
     protected $fillable = ['category_sub_name', 'category_id', 'category_icon', 'category_color'];
     protected $hidden = ['created_at', 'updated_at'];
     protected $casts = ['category_sub_id' => 'string'];
+    public $incrementing = false;
 }

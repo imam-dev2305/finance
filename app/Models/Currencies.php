@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Currencies extends Model
 {
     use HasFactory;
+    protected $primaryKey = 'currency_id';
+    public $incrementing = false;
 }

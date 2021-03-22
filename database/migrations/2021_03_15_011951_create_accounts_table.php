@@ -14,13 +14,14 @@ class CreateAccountsTable extends Migration
     public function up()
     {
         Schema::create('accounts', function (Blueprint $table) {
-            $table->id('account_id');
+            $table->string('account_id')->primary();
             $table->string('account_name', 25);
             $table->string('bank_account_number', 25)->nullable(true);
             $table->integer('account_type_id');
+            $table->double('amount', 12, 2)->default(0);
             $table->char('currency_id', 3);
             $table->boolean('exclude_from_stat');
-            $table->integer('user_id');
+            $table->string('user_id')->index();
             $table->timestamps();
         });
     }

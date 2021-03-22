@@ -9,6 +9,7 @@ class Accounts extends Model
 {
     use HasFactory;
     protected $primaryKey = 'account_id';
-    protected $fillable = ['account_name', 'bank_account_number', 'account_type_id', 'currency_id', 'exclude_from_stat'];
+    protected $fillable = ['account_id', 'account_name', 'bank_account_number', 'account_type_id', 'currency_id', 'exclude_from_stat'];
     protected $hidden = ['created_at', 'updated_at'];
+    public $incrementing = false;
 }

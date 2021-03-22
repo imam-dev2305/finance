@@ -13,13 +13,13 @@ class CreateCategoriesSubCustomTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories_subs_custom', function (Blueprint $table) {
+        Schema::create('categories_subs_customs', function (Blueprint $table) {
             $table->char('category_sub_custom_id', 4)->primary();
             $table->string('category_sub_custom_name', 25);
-            $table->char('category_sub_id', 4);
+            $table->char('category_id', 4);
             $table->string('category_icon', 25);
             $table->string('category_color', 10);
-            $table->bigInteger('user_id');
+            $table->string('user_id')->index();
             $table->timestamps();
         });
     }

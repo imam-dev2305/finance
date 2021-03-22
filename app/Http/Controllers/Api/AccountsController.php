@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Models\Accounts;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
+use Ramsey\Uuid\Provider\Node\RandomNodeProvider;
+use Ramsey\Uuid\Uuid;
 
 class AccountsController extends Controller
 {
@@ -18,6 +20,8 @@ class AccountsController extends Controller
     function save(Request $request) {
         if ($this->validation($request)) {
             $account = new Accounts();
+            $nodeProvider = new RandomNodeProvider();
+            $account->account_id = Uuid::uuid1($nodeProvider->getNode());
             $account->account_name = $request->account_name;
             $account->bank_account_number = $request->bank_account_number;
             $account->account_type_id = $request->account_type_id;
