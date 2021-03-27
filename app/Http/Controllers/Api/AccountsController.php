@@ -18,7 +18,7 @@ class AccountsController extends Controller
     }
 
     function save(Request $request) {
-        if ($this->validation($request)) {
+        if ($this->validation($request) === true) {
             $account = new Accounts();
             $nodeProvider = new RandomNodeProvider();
             $account->account_id = Uuid::uuid1($nodeProvider->getNode());
@@ -33,11 +33,13 @@ class AccountsController extends Controller
             } else {
                 return ["status" => 400, "message" => "Failed to save record"];
             }
+        } else {
+            return $this->validation($request);
         }
     }
 
     function edit(Request $request) {
-        if ($this->validation($request)) {
+        if ($this->validation($request) === true) {
             $accounts = Accounts::find($request->account_id);
             if (!Gate::allows('update-accounts', $accounts)) {
                 return ["status" => 403, "message" => "You don't have permission to perform action"];
@@ -52,6 +54,8 @@ class AccountsController extends Controller
             } else {
                 return ["status" => 400, "message" => "Failed to update record"];
             }
+        } else {
+            return $this->validation($request);
         }
     }
 
@@ -84,7 +88,7 @@ class AccountsController extends Controller
             'account_name' => [
                 'string',
                 'required',
-                'max:25'
+                'max:50'
             ],
             'bank_account_number' => [
                 'string',

@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCategoriesSubCustomTable extends Migration
+class CreateCategoriesUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateCategoriesSubCustomTable extends Migration
      */
     public function up()
     {
-        Schema::create('categories_subs_customs', function (Blueprint $table) {
-            $table->char('category_sub_custom_id', 4)->primary();
-            $table->string('category_sub_custom_name', 25);
-            $table->char('category_id', 4);
-            $table->string('category_icon', 25);
+        Schema::create('categories_user', function (Blueprint $table) {
+            $table->string('category_id')->primary();
+            $table->char('category_parent', 4);
+            $table->string('category_name', 50);
+            $table->string('category_icon', 50);
             $table->string('category_color', 10);
             $table->string('user_id')->index();
             $table->timestamps();
@@ -31,6 +31,6 @@ class CreateCategoriesSubCustomTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories_sub_custom');
+        Schema::dropIfExists('categories_user');
     }
 }

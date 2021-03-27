@@ -10,16 +10,15 @@ class Categories extends Model
     use HasFactory;
     protected $table = 'categories';
     protected $primaryKey = 'category_id';
-    protected $fillable = ['category_name', 'category_icon', 'category_color'];
+    protected $fillable = ['category_parent', 'category_name', 'category_icon', 'category_color'];
     protected $hidden = ['created_at', 'updated_at'];
-    protected $casts = ['category_id' => 'string'];
     public $incrementing = false;
 
-    function subCategories() {
-        return $this->hasMany(CategoriesSub::class, 'category_id', 'category_id');
+    function CategoriesUserSettings() {
+        return $this->hasMany(CategoriesUserSettings::class, 'category_id', 'category_id');
     }
 
-    function subCategoriesUser() {
-        return $this->hasMany(CategoriesUser::class, 'category_id', 'category_id');
+    function CategoriesUser() {
+        return $this->hasMany(CategoriesUser::class, 'category_parent', 'category_id');
     }
 }

@@ -17,7 +17,7 @@ class CreateTransactionsTable extends Migration
             $table->string('transaction_id')->primary();
             $table->bigInteger('transaction_type_id');
             $table->bigInteger('account_id');
-            $table->char('category_id', 5);
+            $table->string('category_id');
             $table->double('amount', 12, 2);
             $table->char('currency_id', 3);
             $table->dateTime('transaction_date');

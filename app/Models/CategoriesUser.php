@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class CategoriesUser extends Model
 {
     use HasFactory;
-    protected $table = 'categories_subs_customs';
-    protected $primaryKey = 'category_sub_custom_id';
-    protected $fillable = ['category_sub_custom_name', 'category_id', 'category_icon', 'category_color'];
+    protected $table = 'categories_user';
+    protected $primaryKey = 'category_id';
+    protected $fillable = ['category_parent', 'category_name', 'category_id', 'category_icon', 'category_color'];
     protected $hidden = ['created_at', 'updated_at'];
-    protected $casts = ['category_sub_custom_id' => 'string'];
+//    protected $casts = ['category_sub_custom_id' => 'string'];
     public $incrementing = false;
 }
