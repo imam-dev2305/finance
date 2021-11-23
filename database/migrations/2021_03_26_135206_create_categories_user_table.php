@@ -18,7 +18,7 @@ class CreateCategoriesUserTable extends Migration
             $table->char('category_parent', 4);
             $table->string('category_name', 50);
             $table->string('category_icon', 50);
-            $table->string('category_color', 10);
+            $table->string('category_color', 50);
             $table->string('user_id')->index();
             $table->timestamps();
         });

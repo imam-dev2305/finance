@@ -2,23 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8f68ed7-5cb8-4928-a7e9-5b5f1f61f16d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/721b4e11-eb18-4da0-be17-c312d4602bc8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/721b4e11-eb18-4da0-be17-c312d4602bc8.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jurnal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jurnal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AccountsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AccountsController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/CategoriesUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CategoriesUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Oauth2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Oauth2.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/Cors.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/Cors.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/AccountTypes.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/AccountTypes.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Accounts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Accounts.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Categories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/CategoriesSub.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Models/CategoriesUser.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/CategoriesUser.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/CategoryPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/CategoryPolicy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/CategoriesUserSettings.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Currencies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Currencies.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Transaction.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/TransactionType.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_15_011951_create_accounts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_15_011951_create_accounts_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_15_113215_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_15_113215_create_categories_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_15_115045_create_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_15_115045_create_transactions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_20_025527_create_categories_subs_table.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_20_030041_create_categories_sub_custom_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_26_134352_create_categories_user_settings_table.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_26_135206_create_categories_user_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_26_135206_create_categories_user_table.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database/seeders/CategoriesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CategoriesSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/CategoriesSubsSeeder.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/login.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/confirm.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/email.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/passwords/reset.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/register.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/auth/verify.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/home.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,14 +88,14 @@
         <item name="financial@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="financial: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-        <item name="categories: table" type="dbc44a63:MariaImplModel$Table" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="financial@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="financial: schema" type="ebfa3cd1:MariaImplModel$Schema" />
-        <item name="categories_user_settings: table" type="dbc44a63:MariaImplModel$Table" />
+        <item name="routines" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
     </expand>
     <select />
@@ -141,7 +166,6 @@
       <path value="$PROJECT_DIR$/vendor/egulias/email-validator" />
       <path value="$PROJECT_DIR$/vendor/laravel/framework" />
       <path value="$PROJECT_DIR$/vendor/vlucas/phpdotenv" />
-      <path value="$PROJECT_DIR$/vendor/dnoegel/php-xdg-base-dir" />
       <path value="$PROJECT_DIR$/vendor/ramsey/collection" />
       <path value="$PROJECT_DIR$/vendor/ramsey/uuid" />
       <path value="$PROJECT_DIR$/vendor/league/mime-type-detection" />
@@ -191,6 +215,13 @@
       <path value="$PROJECT_DIR$/vendor/barryvdh/laravel-debugbar" />
       <path value="$PROJECT_DIR$/vendor/symfony/debug" />
       <path value="$PROJECT_DIR$/vendor/maximebf/debugbar" />
+      <path value="$PROJECT_DIR$/vendor/dflydev/dot-access-data" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-factory" />
+      <path value="$PROJECT_DIR$/vendor/nette/schema" />
+      <path value="$PROJECT_DIR$/vendor/nette/utils" />
+      <path value="$PROJECT_DIR$/vendor/laravel/serializable-closure" />
+      <path value="$PROJECT_DIR$/vendor/league/config" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php81" />
     </include_path>
   </component>
   <component name="ProjectId" id="1orHKTr5sAwCSWqTzuCsD12GWfQ" />
@@ -205,8 +236,15 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="database.data.extractors.current.id" value="Tab-separated (TSV)_id" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../MIA" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="database.main" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Project\Web\Backend\financial\app\Http\Controllers\Api" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="phpunit.xml" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
@@ -218,6 +256,7 @@
     <option name="viewStates">
       <list>
         <serviceView>
+          <option name="contentProportion" value="0.14451313" />
           <treeState>
             <expand>
               <path>
@@ -227,17 +266,17 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="financial@localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@5282dc86" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@50fdfecd" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="financial@localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@22d6310e" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@2b514822" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="financial@localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@43ec09c7" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@6ee57e3" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -284,7 +323,63 @@
       <workItem from="1616413453057" duration="630000" />
       <workItem from="1616418354154" duration="2568000" />
       <workItem from="1616764060873" duration="3151000" />
-      <workItem from="1616814861577" duration="14490000" />
+      <workItem from="1616814861577" duration="14616000" />
+      <workItem from="1617325361068" duration="589000" />
+      <workItem from="1617353149019" duration="1730000" />
+      <workItem from="1617360270364" duration="3375000" />
+      <workItem from="1618104597974" duration="718000" />
+      <workItem from="1618140563468" duration="1611000" />
+      <workItem from="1624755413249" duration="18000" />
+      <workItem from="1628050795597" duration="4599000" />
+      <workItem from="1629884107502" duration="16000" />
+      <workItem from="1630288843532" duration="14000" />
+      <workItem from="1630291295129" duration="24000" />
+      <workItem from="1630291641843" duration="2051000" />
+      <workItem from="1630729711643" duration="3678000" />
+      <workItem from="1630815738491" duration="3208000" />
+      <workItem from="1630998105020" duration="10244000" />
+      <workItem from="1631100728152" duration="3603000" />
+      <workItem from="1631239693860" duration="758000" />
+      <workItem from="1631606476686" duration="5485000" />
+      <workItem from="1631688507943" duration="2153000" />
+      <workItem from="1632989810095" duration="1108000" />
+      <workItem from="1633319214754" duration="5674000" />
+      <workItem from="1633340567608" duration="1244000" />
+      <workItem from="1633419683095" duration="1632000" />
+      <workItem from="1633588791682" duration="647000" />
+      <workItem from="1633930442983" duration="3567000" />
+      <workItem from="1633948108234" duration="6278000" />
+      <workItem from="1634175396588" duration="1262000" />
+      <workItem from="1634177231494" duration="21837000" />
+      <workItem from="1634424587927" duration="13314000" />
+      <workItem from="1634617040777" duration="23320000" />
+      <workItem from="1634650108193" duration="1439000" />
+      <workItem from="1634793621166" duration="10542000" />
+      <workItem from="1634864107414" duration="16053000" />
+      <workItem from="1634949866505" duration="5436000" />
+      <workItem from="1635040818580" duration="586000" />
+      <workItem from="1635046618735" duration="1361000" />
+      <workItem from="1635061319123" duration="11000" />
+      <workItem from="1635062558938" duration="689000" />
+      <workItem from="1635131991652" duration="689000" />
+      <workItem from="1635258048955" duration="15000" />
+      <workItem from="1635259755300" duration="1220000" />
+      <workItem from="1635652134030" duration="842000" />
+      <workItem from="1635653753243" duration="8034000" />
+      <workItem from="1635747142943" duration="14000" />
+      <workItem from="1635760595490" duration="25000" />
+      <workItem from="1635761500740" duration="503000" />
+      <workItem from="1636037900151" duration="587000" />
+      <workItem from="1636078841289" duration="8604000" />
+      <workItem from="1636159556978" duration="6719000" />
+      <workItem from="1636631398550" duration="662000" />
+      <workItem from="1636770592252" duration="4769000" />
+      <workItem from="1636853663587" duration="2289000" />
+      <workItem from="1637283153680" duration="3566000" />
+      <workItem from="1637296564571" duration="9002000" />
+      <workItem from="1637372838697" duration="2681000" />
+      <workItem from="1637479293631" duration="3188000" />
+      <workItem from="1637658433924" duration="159000" />
     </task>
     <servers />
   </component>
@@ -292,65 +387,80 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="275" y="25" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616211490264">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="275" y="30" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637296045502">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="275" y="25" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1616211490264" />
-    <state x="457" y="174" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1615466882354">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="275" y="30" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1637296045502" />
+    <state x="413" y="127" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1637307551023">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="457" y="174" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1615466882354" />
-    <state x="413" y="122" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1616767106546">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="413" y="127" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1637307551023" />
+    <state x="463" y="127" key="FileChooserDialogImpl" timestamp="1633588843455">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="413" y="122" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1616767106546" />
-    <state width="905" height="179" key="GridCell.Tab.0.bottom" timestamp="1616824481777">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="463" y="127" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1633588843455" />
+    <state width="1106" height="150" key="GridCell.Tab.0.bottom" timestamp="1637310946626">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="905" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1616824481777" />
-    <state width="905" height="179" key="GridCell.Tab.0.center" timestamp="1616824481777">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1106" height="150" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1637310946626" />
+    <state width="1106" height="150" key="GridCell.Tab.0.center" timestamp="1637310946626">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="905" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1616824481777" />
-    <state width="905" height="179" key="GridCell.Tab.0.left" timestamp="1616824481777">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1106" height="150" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1637310946626" />
+    <state width="1106" height="150" key="GridCell.Tab.0.left" timestamp="1637310946626">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="905" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1616824481777" />
-    <state width="905" height="179" key="GridCell.Tab.0.right" timestamp="1616824481777">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1106" height="150" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1637310946626" />
+    <state width="1106" height="150" key="GridCell.Tab.0.right" timestamp="1637310946626">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="905" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1616824481777" />
-    <state x="562" y="257" width="319" height="222" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1616765533757">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1106" height="150" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1637310946626" />
+    <state x="450" y="203" key="NewPhpClassDialog" timestamp="1634875941504">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="562" y="257" width="319" height="222" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.728@0.0.1366.728" timestamp="1616765533757" />
-    <state x="263" y="22" key="com.intellij.database.dbimport.ImportDialog" timestamp="1615807523193">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="450" y="203" key="NewPhpClassDialog/0.0.1366.738@0.0.1366.738" timestamp="1634875941504" />
+    <state x="517" y="300" key="NewPhpFileDialog" timestamp="1634868577941">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="263" y="22" key="com.intellij.database.dbimport.ImportDialog/0.0.1366.728@0.0.1366.728" timestamp="1615807523193" />
-    <state x="413" y="172" key="com.intellij.database.dbimport.ImportUtil.MyDialog" timestamp="1615807516559">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="517" y="300" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1634868577941" />
+    <state x="186" y="14" key="SettingsEditor" timestamp="1637308861621">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="413" y="172" key="com.intellij.database.dbimport.ImportUtil.MyDialog/0.0.1366.728@0.0.1366.728" timestamp="1615807516559" />
-    <state x="484" y="197" width="398" height="318" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1616816922579">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="186" y="14" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1637308861621" />
+    <state x="544" y="262" width="319" height="222" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1637310900421">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="484" y="197" width="398" height="318" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1366.728@0.0.1366.728" timestamp="1616816922579" />
-    <state x="392" y="14" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1616820592908">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="544" y="262" width="319" height="222" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.738@0.0.1366.738" timestamp="1637310900421" />
+    <state x="413" y="177" key="com.intellij.database.dbimport.ImportUtil.MyDialog" timestamp="1631007995720">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="392" y="14" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1366.728@0.0.1366.728" timestamp="1616820592908" />
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog" timestamp="1616814866386">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="413" y="177" key="com.intellij.database.dbimport.ImportUtil.MyDialog/0.0.1366.738@0.0.1366.738" timestamp="1631007995720" />
+    <state x="484" y="202" width="398" height="328" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1637296448672">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="391" y="191" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1616814866386" />
-    <state x="390" y="120" width="586" height="488" key="find.popup" timestamp="1616823170099">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="484" y="202" width="398" height="328" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1366.738@0.0.1366.738" timestamp="1637296448672" />
+    <state x="392" y="19" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1637302293779">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="390" y="120" width="586" height="488" key="find.popup/0.0.1366.728@0.0.1366.728" timestamp="1616823170099" />
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1616288690843">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="392" y="19" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1366.738@0.0.1366.738" timestamp="1637302293779" />
+    <state x="391" y="194" key="com.intellij.ide.util.TipDialog" timestamp="1637658533076">
+      <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="346" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728@0.0.1366.728" timestamp="1616288690843" />
+    <state x="391" y="194" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1637658533076" />
+    <state x="390" y="125" width="588" height="488" key="find.popup" timestamp="1634897410815">
+      <screen x="0" y="0" width="1366" height="738" />
+    </state>
+    <state x="390" y="125" width="588" height="488" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1634897410815" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/database/migrations/2021_11_19_152438_create_trigger_transactions.php</url>
+          <line>2</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

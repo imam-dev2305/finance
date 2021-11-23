@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use HasApiTokens, HasFactory, Notifiable;
 
@@ -19,6 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'user_id',
+        'base_currency',
         'name',
         'email',
         'password',
@@ -45,4 +46,16 @@ class User extends Authenticatable
 
     protected $primaryKey = "user_id";
     public $incrementing = false;
+
+    public function accounts() {
+        return $this->hasMany(Accounts::class, 'user_id', 'user_id');
+    }
+
+    public function currencies() {
+        return $this->hasOne(Currencies::class, 'user_id', 'user_id');
+    }
+
+    public function transactions() {
+        return $this->hasMany(Transactions::class, 'user_id', 'user_id');
+    }
 }

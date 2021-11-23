@@ -14,4 +14,8 @@ class CategoriesUser extends Model
     protected $hidden = ['created_at', 'updated_at'];
 //    protected $casts = ['category_sub_custom_id' => 'string'];
     public $incrementing = false;
+
+    public function categories() {
+        return $this->belongsTo(Categories::class, 'category_parent', 'category_id');
+    }
 }
