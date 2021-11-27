@@ -4,11 +4,6 @@
  * building robust, powerful web applications using Vue and Laravel.
  */
 
-require('./bootstrap');
-import Vue from 'vue'
-import vuetify from './plugins/vuetify'
-import router from './router'
-import store from './store'
 
 /**
  * The following block of code may be used to automatically register your
@@ -20,9 +15,6 @@ import store from './store'
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
-const login = () => import('./views/pages/Login.vue')
-
-Vue.component('login-component', login);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -30,9 +22,4 @@ Vue.component('login-component', login);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-const app = new Vue({
-    el: '#app',
-    vuetify,
-    store,
-    router
-});
+require('../../ui/src/main.js')

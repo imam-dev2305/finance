@@ -2,22 +2,72 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8f68ed7-5cb8-4928-a7e9-5b5f1f61f16d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ConfirmPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ForgotPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/ResetPasswordController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/VerificationController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/filesystems.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/filesystems.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/mix-manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/public/mix-manifest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/ExampleComponent.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/UpgradeToPro.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/statistics-card/StatisticsCardVertical.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/layouts/Blank.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/layouts/Content.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/layouts/components/AppBarUserMenu.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/layouts/components/ContextMenu.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/layouts/components/Expands-copy.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/layouts/components/Expands.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/layouts/components/ThemeSwitcher.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/layouts/components/vertical-nav-menu/VerticalNavMenu.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/layouts/components/vertical-nav-menu/components/NavMenuGroup.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/layouts/components/vertical-nav-menu/components/NavMenuLink.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/layouts/components/vertical-nav-menu/components/NavMenuSectionTitle.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/plugins/vue-composition-api.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/plugins/vuetify/default-preset/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/plugins/vuetify/default-preset/preset/classes.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/plugins/vuetify/default-preset/preset/dark.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/plugins/vuetify/default-preset/preset/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/plugins/vuetify/default-preset/preset/libs/apex-chart.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/plugins/vuetify/default-preset/preset/misc.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/plugins/vuetify/default-preset/preset/mixins.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/plugins/vuetify/default-preset/preset/overrides.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/plugins/vuetify/default-preset/preset/pages/auth.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/plugins/vuetify/default-preset/preset/rtl.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/plugins/vuetify/default-preset/preset/variables.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/plugins/vuetify/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/router/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/store/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/Error.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/accounts/Account.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/accounts/AccountEditFormLayout.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/accounts/AccountFormLayout.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/accounts/AccountTableLayout.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/categories/Category.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/categories/CategoryTableLayout.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/dashboard/Dashboard.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/dashboard/DashboardCardDepositAndWithdraw.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/dashboard/DashboardCardSalesByCountries.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/dashboard/DashboardCardTotalEarning.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/dashboard/DashboardCongratulationJohn.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/dashboard/DashboardDatatable.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/dashboard/DashboardStatisticsCard.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/dashboard/DashboardWeeklyOverview.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/dashboard/datatable-data.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/pages/Login.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/pages/Register.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/pages/account-settings/AccountSettings.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/pages/account-settings/AccountSettingsAccount.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/pages/account-settings/AccountSettingsInfo.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/pages/account-settings/AccountSettingsSecurity.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/transactions/Transaction.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/transactions/TransactionMainLayout.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/transactions/TransactionsAddLayout.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/transactions/TransactionsEditLayout.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
@@ -439,10 +489,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="391" y="194" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1637749316861" />
-    <state x="390" y="125" width="710" height="546" key="find.popup" timestamp="1637759750839">
+    <state x="390" y="125" width="710" height="546" key="find.popup" timestamp="1638017633259">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="390" y="125" width="710" height="546" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1637759750839" />
+    <state x="390" y="125" width="710" height="546" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1638017633259" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
