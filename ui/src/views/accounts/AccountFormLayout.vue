@@ -234,7 +234,7 @@
           timeout: 2000,
           message: '',
           color: 'success',
-        }
+        },
       }
     },
     watch: {

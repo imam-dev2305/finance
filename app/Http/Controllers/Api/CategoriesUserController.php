@@ -27,7 +27,8 @@ class CategoriesUserController extends Controller
     }
 
     function save(Request $request) {
-        if ($this->validation($request)) {
+        $validate = $this->validation($request);
+        if ($validate['flag'] === 1) {
             $categories = new CategoriesUser;
             $categories->category_id = Uuid::uuid1();
             $categories->category_parent = $request->category_parent;
@@ -38,11 +39,14 @@ class CategoriesUserController extends Controller
             if ($categories->save()) {
                 return Response::json(['flag' => 1, 'data' => [], 'message' => 'Record has been saved!'], 200);
             }
+        } else {
+            return Response::json(['flag' => 2, 'message' => $validate['message']], 500);
         }
     }
 
     function edit(Request $request) {
-        if ($this->validation($request)) {
+        $validate = $this->validation($request);
+        if ($validate['flag'] === 1) {
             $categories_user = CategoriesUser::find($request->category_id);
             $categories_user->category_name = $request->category_name;
             $categories_user->category_icon = $request->category_icon;
@@ -51,6 +55,8 @@ class CategoriesUserController extends Controller
             if ($categories_user->save()) {
                 return Response::json(['flag' => 1, 'data' => [], 'message' => 'Record has been updated!'], 200);
             }
+        } else {
+            return Response::json(['flag' => 2, 'message' => $validate['message']], 500);
         }
     }
 
@@ -74,24 +80,24 @@ class CategoriesUserController extends Controller
                 Rule::exists('categories', 'category_id')
             ],
             'category_name' => [
-                'string',
                 'required',
-                Rule::unique('categories_user')->ignore(CategoriesUser::class, 'category_id'),
                 'max:50'
             ],
             'category_icon' => [
+                'required',
                 'string',
                 'max:50'
             ],
             'category_color' => [
                 'string',
-                'max:10'
+                'max:50'
             ]
         ], [], $validator_custom_attribute);
         if ($validator->fails()) {
             $response = ['flag' => 2, 'message' => $validator->errors()];
-            return Response::json($response, 500);
+        } else {
+            $response = ['flag' => 1];
         }
-        return true;
+        return $response;
     }
 }

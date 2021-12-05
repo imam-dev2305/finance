@@ -109,6 +109,8 @@
                                 label="Name"
                                 dense
                                 required
+                                :error-count="frmEditError.category_name.length"
+                                :error-messages="frmEditError.category_name"
                               ></v-text-field>
                             </v-col>
                             <v-col
@@ -121,6 +123,8 @@
                                 :items="iconList"
                                 label="Icon"
                                 dense
+                                :error-count="frmEditError.category_icon.length"
+                                :error-messages="frmEditError.category_icon"
                               >
                                 <template
                                   slot="item"
@@ -191,7 +195,7 @@
                     <v-btn
                       icon
                       dark
-                      @click="dialog = false"
+                      @click="popDialog('')"
                     >
                       <v-icon>mdi-close</v-icon>
                     </v-btn>
@@ -222,6 +226,8 @@
                               label="Name"
                               required
                               dense
+                              :error-count="frmError.category_name.length"
+                              :error-messages="frmError.category_name"
                             ></v-text-field>
                           </v-col>
                           <v-col
@@ -234,6 +240,8 @@
                               :items="iconList"
                               label="Icon"
                               dense
+                              :error-count="frmError.category_icon.length"
+                              :error-messages="frmError.category_icon"
                             >
                               <template
                                 slot="item"
@@ -260,6 +268,13 @@
         </Expands>
       </template>
     </Expands>
+    <v-snackbar
+      v-model="snackbar.value"
+      :timeout="snackbar.timeout"
+      :color="snackbar.color"
+    >
+      {{snackbar.message}}
+    </v-snackbar>
   </div>
 </template>
 
@@ -278,11 +293,24 @@
           category_color: this.parentColor,
           category_icon: '',
         },
+        frmError: {
+          category_parent: '',
+          category_name: '',
+          category_color: '',
+          category_icon: '',
+        },
         frmEdit: {
           category_id: '',
           category_parent: '',
           category_name: '',
           category_color: this.parentColor,
+          category_icon: '',
+        },
+        frmEditError: {
+          category_id: '',
+          category_parent: '',
+          category_name: '',
+          category_color: '',
           category_icon: '',
         },
         iconList: [
@@ -309,7 +337,31 @@
         skeleton: {
           panel: true,
         },
+        snackbar: {
+          value: false,
+          timeout: 2000,
+          message: '',
+          color: 'success',
+        },
       }
+    },
+    watch: {
+      // eslint-disable-next-line
+      'frm.category_name': function () {
+        this.frmError.category_name = ''
+      },
+      // eslint-disable-next-line
+      'frm.category_color': function () {
+        this.frmError.category_color = ''
+      },
+      // eslint-disable-next-line
+      'frmEdit.category_name': function () {
+        this.frmEditError.category_name = ''
+      },
+      // eslint-disable-next-line
+      'frmEdit.category_icon': function () {
+        this.frmEditError.category_icon = ''
+      },
     },
     mounted() {
       this.getListCategories()
@@ -332,6 +384,10 @@
         return colour.category_color !== '' ? colour.category_color : this.parentColor
       },
       popDialog(id) {
+        if (typeof this.$refs.frmCategories !== 'undefined') {
+          this.frmError.category_name = ''
+          this.frmError.category_icon = ''
+        }
         this.frm.category_parent = id.category_id
         this.frm.category_color = id.category_color
         this.dialog = !this.dialog
@@ -346,12 +402,13 @@
           this.getListCategories()
           this.dialog = !this.dialog
           this.$refs.frmCategories.reset()
+          this.snackbar.value = true
+          this.snackbar.color = 'success'
+          this.snackbar.message = response.data.message
         }).catch((e) => {
           var data = e.response.data
           switch (data.flag) {
             case 2:
-              this.alert.danger = false
-              this.alert.success = false
               Object.keys(this.frmError).forEach((key) => {
                 if (key in data.message) {
                   this.frmError[key] = data.message[key]
@@ -362,8 +419,9 @@
               break
             case 3:
             default:
-              this.alert.danger = true
-              this.alert_message = data.message
+              this.snackbar.value = true
+              this.snackbar.color = 'warning'
+              this.snackbar.message = data.message
               break
           }
         })
@@ -374,27 +432,29 @@
             Authorization: `Bearer ${this.$store.getters.bearer}`
           }
         }).then((response) => {
-          this.getListCategories()
           this.optionsClose(this.frmEdit)
+          this.getListCategories()
           this.$refs.frmEditCategories.reset()
+          this.snackbar.value = true
+          this.snackbar.color = 'success'
+          this.snackbar.message = response.data.message
         }).catch((e) => {
           var data = e.response.data
           switch (data.flag) {
             case 2:
-              this.alert.danger = false
-              this.alert.success = false
               Object.keys(this.frmError).forEach((key) => {
                 if (key in data.message) {
-                  this.frmError[key] = data.message[key]
+                  this.frmEditError[key] = data.message[key]
                 } else {
-                  this.frmError[key] = ''
+                  this.frmEditError[key] = ''
                 }
               })
               break
             case 3:
             default:
-              this.alert.danger = true
-              this.alert_message = data.message
+              this.snackbar.value = true
+              this.snackbar.color = 'warning'
+              this.snackbar.message = data.message
               break
           }
         })
@@ -438,8 +498,10 @@
             Authorization: `Bearer ${this.$store.getters.bearer}`
           }
         }).then((response) => {
+          this.snackbar.value = true
+          this.snackbar.color = 'success'
+          this.snackbar.message = response.data.message
           this.getListCategories()
-          this.optionsClose(this.frmEdit)
         }).catch((e) => {
           var data = e.response.data
           switch (data.flag) {
@@ -456,8 +518,9 @@
               break
             case 3:
             default:
-              this.alert.danger = true
-              this.alert_message = data.message
+              this.snackbar.value = true
+              this.snackbar.color = 'warning'
+              this.snackbar.message = data.message
               break
           }
         })

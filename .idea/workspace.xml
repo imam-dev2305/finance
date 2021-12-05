@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d8f68ed7-5cb8-4928-a7e9-5b5f1f61f16d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/CategoriesUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CategoriesUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/views/accounts/AccountFormLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/accounts/AccountFormLayout.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/views/categories/CategoryTableLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/categories/CategoryTableLayout.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -57,6 +59,14 @@
         <item name="financial: schema" type="ebfa3cd1:MariaImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="accounts: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="financial@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="financial: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="categories_user: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -360,7 +370,7 @@
       <workItem from="1638359051194" duration="7945000" />
       <workItem from="1638410405677" duration="5022000" />
       <workItem from="1638671701894" duration="13092000" />
-      <workItem from="1638687125650" duration="1554000" />
+      <workItem from="1638687125650" duration="5805000" />
     </task>
     <servers />
   </component>
