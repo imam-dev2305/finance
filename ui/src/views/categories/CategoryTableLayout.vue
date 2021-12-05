@@ -38,15 +38,33 @@
                   class="white--text"
                 >
                   <template v-slot:actions>
-                    <v-btn
-                      icon
-                      @contextmenu.prevent.stop="handleClick($event, list, idx)"
-                      @click.prevent.stop="handleClick($event, list, idx)"
+                    <v-menu
+                      bottom
+                      right
+                      offset-y
                     >
-                      <v-icon class="white--text">
-                        mdi-cog
-                      </v-icon>
-                    </v-btn>
+                      <template v-slot:activator="{ on, attrs }">
+                        <v-btn
+                          icon
+                          v-bind="attrs"
+                          v-on="on"
+                        >
+                          <v-icon class="white--text">mdi-dots-vertical</v-icon>
+                        </v-btn>
+                      </template>
+                      <v-list>
+                        <v-list-item
+                          @click="editContext({item: list, idx})"
+                        >
+                          <v-list-item-title>Edit</v-list-item-title>
+                        </v-list-item>
+                        <v-list-item
+                          @click="deleteContext({item: list, idx})"
+                        >
+                          <v-list-item-title>Delete</v-list-item-title>
+                        </v-list-item>
+                      </v-list>
+                    </v-menu>
                   </template>
                   <v-row>
                     <v-col
@@ -242,19 +260,11 @@
         </Expands>
       </template>
     </Expands>
-    <context-menu
-      :ref="'ContextMenu'"
-      :elementid="'contextmenu'"
-      :options="optionsContext"
-      @option-clicked="optionsClicked"
-    >
-    </context-menu>
   </div>
 </template>
 
 <script>
   import Expands from '../../layouts/components/Expands.vue'
-  import ContextMenu from '../../layouts/components/ContextMenu.vue'
 
   export default {
     name: 'CategoryTableLayout',
@@ -401,9 +411,6 @@
           .toLowerCase()
           .indexOf(query.toString().toLowerCase()) > -1
       },
-      optionsClicked(event) {
-        event.option.actions(event)
-      },
       optionsClose(item) {
         this.frmEdit = {
           category_id: '',
@@ -455,12 +462,9 @@
           }
         })
       },
-      handleClick(event, item, idx) {
-        this.$refs.ContextMenu.showMenu(event, item, idx)
-      },
     },
-    components: { Expands, ContextMenu },
-    template: { Expands, ContextMenu },
+    components: { Expands },
+    template: { Expands },
   }
 </script>
 

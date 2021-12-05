@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="d8f68ed7-5cb8-4928-a7e9-5b5f1f61f16d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/accounts/Account.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/accounts/Account.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/accounts/AccountEditFormLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/accounts/AccountEditFormLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/accounts/AccountFormLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/accounts/AccountFormLayout.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/views/categories/CategoryTableLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/categories/CategoryTableLayout.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -362,7 +359,8 @@
       <workItem from="1638062101501" duration="530000" />
       <workItem from="1638359051194" duration="7945000" />
       <workItem from="1638410405677" duration="5022000" />
-      <workItem from="1638671701894" duration="12883000" />
+      <workItem from="1638671701894" duration="13092000" />
+      <workItem from="1638687125650" duration="1554000" />
     </task>
     <servers />
   </component>
@@ -434,10 +432,10 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="392" y="19" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1366.738@0.0.1366.738" timestamp="1638681246688" />
-    <state x="391" y="194" key="com.intellij.ide.util.TipDialog" timestamp="1638671727887">
+    <state x="391" y="194" key="com.intellij.ide.util.TipDialog" timestamp="1638687820080">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="391" y="194" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1638671727887" />
+    <state x="391" y="194" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1638687820080" />
     <state x="390" y="125" width="710" height="546" key="find.popup" timestamp="1638680782284">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
