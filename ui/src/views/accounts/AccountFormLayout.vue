@@ -1,36 +1,5 @@
 <template>
   <div>
-    <v-alert
-      v-model="alert.success"
-      dense
-      outlined
-      text
-      type="success"
-      transition="scroll-x-transition"
-    >
-      {{ alert_message }}
-    </v-alert>
-
-    <v-alert
-      v-model="alert.danger"
-      dense
-      outlined
-      text
-      type="error"
-    >
-      {{ alert_message }}
-    </v-alert>
-
-    <v-alert
-      v-model="alert.danger"
-      dense
-      outlined
-      text
-      type="warning"
-    >
-      {{ alert_message }}
-    </v-alert>
-
     <v-progress-linear
       indeterminate
       :active="overlay"
@@ -107,6 +76,7 @@
             item-value="currency_id"
             :hint="`${frm.currency_id}`"
             persistent-hint
+            dense
             placeholder="Currency"
             :error-count="frmError.currency_id.length"
             :error-messages="frmError.currency_id"
@@ -136,6 +106,7 @@
             item-text="account_type_name"
             item-value="account_type_id"
             placeholder="Type"
+            dense
             :error-count="frmError.account_type_id.length"
             :error-messages="frmError.account_type_id"
           ></v-select>
@@ -167,25 +138,61 @@
         </v-col>
 
         <v-col
+          cols="12"
+          md="3"
+        >
+          <label>Color</label>
+        </v-col>
+        <v-col
+          cols="12"
+          md="9"
+        >
+          <v-select
+            v-model="frm.color"
+            dense
+            :items="['bg-gradient-red', 'bg-gradient-orange', 'bg-gradient-yellow', 'bg-gradient-green', 'bg-gradient-light-blue', 'bg-gradient-blue', 'bg-gradient-purple', 'bg-gradient-primary']"
+          >
+            <template slot="item" slot-scope="{item}">
+              <div :class="item" style="width: 100%; min-height: 20px;"></div>
+            </template>
+            <template slot="selection" slot-scope="{item}">
+              <div :class="item" style="width: 100%; min-height: 20px;"></div>
+            </template>
+          </v-select>
+        </v-col>
+
+        <v-col
           offset-md="3"
           cols="12"
         >
           <v-btn
             color="primary"
+            icon
+            outlined
+            title="Save"
             @click="accountSave"
           >
-            Save
+            <v-icon>mdi-content-save</v-icon>
           </v-btn>
           <v-btn
             class="mx-2"
+            icon
             outlined
+            title="Back"
             :to="{name: 'accounts'}"
           >
-            Back
+            <v-icon>mdi-home-outline</v-icon>
           </v-btn>
         </v-col>
       </v-row>
     </v-form>
+    <v-snackbar
+      v-model="snackbar.value"
+      :timeout="snackbar.timeout"
+      :color="snackbar.color"
+    >
+      {{snackbar.message}}
+    </v-snackbar>
   </div>
 </template>
 
@@ -201,6 +208,7 @@
           bank_account_number: '',
           currency_id: '',
           amount: '',
+          color: '',
         },
         frmError: {
           account_name: '',
@@ -212,15 +220,15 @@
         types: this.$store.getters.account_type,
         currency: this.$store.getters.currency,
         overlay: false,
-        alert: {
-          success: false,
-          danger: false,
-          warning: false,
-        },
-        alert_message: '',
         skeleton: {
           text: true,
         },
+        snackbar: {
+          value: false,
+          timeout: 2000,
+          message: '',
+          color: 'success',
+        }
       }
     },
     watch: {
@@ -254,10 +262,10 @@
       },
       numberOnly(e) {
         if (e.target.value.match(/^([\d]+$)/g) !== null) {
-          this.frm.amount = e.target.value.toString()
+          e.target.value = e.target.value.toString()
         } else {
           // eslint-disable-next-line no-useless-escape
-          this.frm.amount = e.target.value.replace(new RegExp('(\[a-zA-Z]*)', 'g'), '')
+          e.target.value = e.target.value.replace(new RegExp('(\[a-zA-Z]*)', 'g'), '')
         }
       },
       numbers(e) {
@@ -274,15 +282,13 @@
           }
         }).then((response) => {
           var data = response.data
-          this.alert.danger = false
-          this.alert.success = true
-          this.alert_message = data.message
+          this.snackbar.value = true
+          this.snackbar.message = data.message
+          this.snackbar.color = 'success'
         }).catch((e) => {
           var data = e.response.data
           switch (data.flag) {
             case 2:
-              this.alert.danger = false
-              this.alert.success = false
               Object.keys(this.frmError).forEach((key) => {
                 if (key in data.message) {
                   this.frmError[key] = data.message[key]
@@ -293,8 +299,9 @@
               break
             case 3:
             default:
-              this.alert.danger = true
-              this.alert_message = data.message
+              this.snakcbar.value = true
+              this.snackbar.message = data.message
+              this.snackbar.color = 'warning'
               break
           }
         })

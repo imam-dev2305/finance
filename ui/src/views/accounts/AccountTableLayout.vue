@@ -7,12 +7,12 @@
         <v-btn
           tile
           color="bg-gradient-primary white--text"
-          :to="{name: 'accounts-add'}"
+          @click="addAccount"
         >
           <v-icon left>
             mdi-plus
           </v-icon>
-          Add More
+          Add
         </v-btn>
       </v-row>
     </v-card-title>
@@ -52,60 +52,29 @@
         v-bind="attrs"
         type="table-heading,table-tfoot"
       ></v-skeleton-loader>
-      <v-data-table
-        v-show="!skeleton.table"
-        :headers="accounts_header"
-        :items="accounts"
-        :loading="loading"
-        :page.sync="page"
-        hide-default-footer
-        class="elevation-1"
-      >
-        <template slot="body.append">
-          <tr class="pink--text">
-            <th class="title text-center">
-              Total
-            </th>
-            <th></th>
-            <th class="title text-end">
-              {{ sumField('amount').toLocaleString('id') }}
-            </th>
-            <th></th>
-          </tr>
-        </template>
-        <!-- eslint-disable-next-line -->
-        <template v-slot:item.amount="{item}">
-          <p class="font-weight-bold">
-            {{ item.amount.toLocaleString('id') }}
-          </p>
-        </template>
-        <template v-slot:item.account_name="{item}">
-          <p>
-            {{ item.account_name.toUpperCase() }}
-          </p>
-        </template>
-        <template v-slot:item.action="{item}">
-          <v-btn
-            :to="{name: 'accounts-edit', params: {id: item.account_id}}"
-            color="yellow"
-            icon
-          >
-            <v-icon
-              small
-            >mdi-pencil
-            </v-icon>
-          </v-btn>
-          <v-btn
-            icon
-          >
-            <v-icon
-              small
-              @click="accountDeleteModal(item)"
-            >mdi-delete
-            </v-icon>
-          </v-btn>
-        </template>
-      </v-data-table>
+      <v-row>
+        <v-col :cols="isMobile ? 12:6" v-for="(account, k) in accounts" :key="k">
+          <router-link :to="{name: 'accounts-edit', params: {id: account.account_id}}">
+            <v-card
+              min-height="200px"
+              :class="`${account.color ? account.color : 'bg-gradient-primary'} rounded-xl`"
+            >
+              <v-card-text>
+                <span class="text-h5 white--text">{{account.account_name}}</span>
+                <div class="card-item">
+                  <v-row>
+                    <v-col cols="6"><span class="white--text">{{account.bank_account_number}}</span></v-col>
+                    <v-col
+                      cols="6"
+                      class="text-right"
+                    ><i class="white--text">{{account.currency_id}}</i> <span class="white--text">{{account.amount.toLocaleString('id')}}</span></v-col>
+                  </v-row>
+                </div>
+              </v-card-text>
+            </v-card>
+          </router-link>
+        </v-col>
+      </v-row>
       <div
         v-show="!skeleton.table"
         class="text-center pt-2"
@@ -117,37 +86,15 @@
           @input="handlePageChange"
         ></v-pagination>
       </div>
-      <v-dialog
-        v-model="dialog"
-        persistent
-        max-width="290"
+
+      <v-snackbar
+        v-model="snackbar.value"
+        :timeout="snackbar.timeout"
+        color="info"
       >
-        <v-card>
-          <v-card-title class="text-h5">
-            Delete {{ dialog_component.deleted_item.account_name }} from your account?
-          </v-card-title>
-          <v-card-text>Once deleted, all of transactions related to this account will be deleted
-            too.
-          </v-card-text>
-          <v-card-actions>
-            <v-spacer></v-spacer>
-            <v-btn
-              color="green darken-1"
-              text
-              @click="dialog = !dialog"
-            >
-              Disagree
-            </v-btn>
-            <v-btn
-              color="green darken-1"
-              text
-              @click="accountDelete(dialog_component.deleted_item.account_id)"
-            >
-              Agree
-            </v-btn>
-          </v-card-actions>
-        </v-card>
-      </v-dialog>
+        You have exceed the number of account could be created.
+      </v-snackbar>
+
     </v-card-text>
   </v-card>
 </template>
@@ -157,11 +104,13 @@
     name: 'AccountTableLayout',
     data() {
       return {
-        accounts: [],
+        isMobile: false,
+        accounts: [{'hi':'kamu'},{'hi':'kamu'},{'hi':'kamu'},{'hi':'kamu'},{'hi':'kamu'}],
         loading: false,
         page: 1,
         page_count: 0,
-        limitPerPage: 10,
+        totalRecord: 0,
+        limitPerPage: 2,
         dialog: false,
         dialog_component: {
           deleted_item: '',
@@ -180,6 +129,10 @@
         skeleton: {
           table: true,
         },
+        snackbar: {
+          value: false,
+          timeout: 2000,
+        }
       }
     },
     computed: {
@@ -210,11 +163,21 @@
       },
     },
     mounted() {
+      this.onResize()
+      window.addEventListener('resize', this.onResize, { passive: true })
       this.getAccounts()
     },
     methods: {
+      addAccount() {
+        if (this.totalRecord > 4) {
+          this.snackbar.value = true
+        } else {
+          this.$router.push({name: 'accounts-add'})
+        }
+      },
       handlePageChange(val) {
         this.page = val
+        this.getAccounts()
       },
       getAccounts() {
         this.loading = true
@@ -228,7 +191,8 @@
           },
         }).then((response) => {
           this.accounts = response.data.data.data
-          this.page_count = response.data.data.records
+          this.page_count = Math.round(response.data.data.recordsTotal / this.limitPerPage)
+          this.totalRecord = response.data.data.recordsTotal
           this.skeleton.table = false
           this.loading = false
         }).catch((e) => {
@@ -257,15 +221,15 @@
       sumField(key) {
         return this.accounts.reduce((a, b) => a + (b[key] || 0), 0)
       },
+      onResize() {
+        this.isMobile = window.innerWidth < 600
+      },
     },
   }
 </script>
 
 <style scoped>
-  .fade-enter-active, .fade-leave-active {
-    transition: opacity .5s;
-  }
-  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-    opacity: 0;
+  .card-item {
+    margin-top: 80px;
   }
 </style>

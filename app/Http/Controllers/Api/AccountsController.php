@@ -20,11 +20,11 @@ class AccountsController extends Controller
 //        $accounts = Accounts::pagination(['user_id' => $request->user()->user_id], (($page-1)*10), $limitPerPage);
         $account = Accounts::where('user_id', '=', $request->user()->user_id);
         $accounts = $account
-            ->offset((($page-1)*10))
+            ->offset((($page-1)*$limitPerPage))
             ->limit($limitPerPage)
             ->get();
         $totalAccounts = $account->paginate(10);
-        $response = ['flag' => 1, 'data' => ["recordsTotal" => $totalAccounts->perPage(), "recordsFiltered" => $totalAccounts->total(), "data" => $accounts], 'message' => 'record has been fetched!'];
+        $response = ['flag' => 1, 'data' => ["recordsTotal" => $totalAccounts->total(), "recordsFiltered" => $limitPerPage, "data" => $accounts], 'message' => 'record has been fetched!'];
         return Response::json($response, 200);
     }
 
@@ -45,10 +45,13 @@ class AccountsController extends Controller
             $account->amount = preg_replace('/(?:\.)/', '$1', $request->amount);
             $account->currency_id = $request->currency_id;
             $account->exclude_from_stat = 0;
+            $account->color = $request->color;
             $account->user_id = $request->user()->user_id;
             if ($account->save()) {
                 return Response::json(['flag' => 1, 'data' => [], 'message' => 'Record has been saved!'], 200);
             }
+        } else {
+            return $this->validation($request);
         }
     }
 
@@ -64,6 +67,7 @@ class AccountsController extends Controller
             $accounts->amount = preg_replace('/(?:\.)/', '$1', $request->amount);
             $accounts->currency_id = $request->currency_id;
             $accounts->exclude_from_stat = 0;
+            $accounts->color = $request->color;
             if ($accounts->save()) {
                 return Response::json(['flag' => 1, 'data' => [], 'message' => 'Record has been updated!'], 200);
             }
@@ -90,7 +94,7 @@ class AccountsController extends Controller
     }
 
     function validation($request) {
-        $request->amount = preg_replace('/(?:\.)/', '$1', $request->amount);
+        $request->amount = intval(preg_replace('/(?:\.)/', '$1', $request->amount));
         $validator_custom_attribute = [
             'account_name' => 'Account name',
             'bank_account_number' => 'Bank account number',
@@ -120,7 +124,11 @@ class AccountsController extends Controller
             ],
             'amount' => [
                 'required',
-                'integer'
+                function ($attribute, $value, $fail) {
+                    if (!preg_match('/[\d]*/', $value)) {
+                        $fail('The '.$attribute.' should be integer');
+                    }
+                }
             ]
         ], [], $validator_custom_attribute);
         if ($validator->fails()) {

@@ -21,6 +21,7 @@ class CreateAccountsTable extends Migration
             $table->integer('account_type_id');
             $table->double('amount', 12, 2)->default(0);
             $table->char('currency_id', 3);
+            $table->string('color', 50);
             $table->boolean('exclude_from_stat')->default(0);
             $table->string('user_id')->index();
             $table->timestamps();
