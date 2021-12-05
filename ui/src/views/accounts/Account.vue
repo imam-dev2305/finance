@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card class="overflow-hidden">
     <v-card-title>Accounts</v-card-title>
     <v-card-text>
       <router-view></router-view>

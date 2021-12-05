@@ -4,7 +4,6 @@
       indeterminate
       :active="overlay"
     ></v-progress-linear>
-
     <v-form v-show="renderPage">
       <v-row>
         <v-col
@@ -160,32 +159,39 @@
             </template>
           </v-select>
         </v-col>
-
-        <v-col
-          offset-md="3"
-          cols="12"
-        >
-          <v-btn
-            color="primary"
-            icon
-            outlined
-            title="Save"
-            @click="accountSave"
-          >
-            <v-icon>mdi-content-save</v-icon>
-          </v-btn>
-          <v-btn
-            class="mx-2"
-            icon
-            outlined
-            title="Back"
-            :to="{name: 'accounts'}"
-          >
-            <v-icon>mdi-home-outline</v-icon>
-          </v-btn>
-        </v-col>
       </v-row>
     </v-form>
+    <v-col
+      offset-md="0"
+      offset-sm="0"
+      md="12"
+      sm="12"
+    >
+      <v-toolbar
+        dense
+        elevation="0"
+      >
+        <v-spacer></v-spacer>
+        <v-btn
+          class="mx-2"
+          icon
+          outlined
+          title="Back"
+          :to="{name: 'accounts'}"
+        >
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+        <v-btn
+          color="primary"
+          icon
+          outlined
+          title="Save"
+          @click="accountSave"
+        >
+          <v-icon>mdi-content-save</v-icon>
+        </v-btn>
+      </v-toolbar>
+    </v-col>
     <v-snackbar
       v-model="snackbar.value"
       :timeout="snackbar.timeout"

@@ -148,10 +148,34 @@
           </v-select>
         </v-col>
 
-        <v-col
-          offset-md="3"
-          cols="12"
+        <v-toolbar
+          dense
+          elevation="0"
         >
+          <v-col
+            offset-md="3"
+          >
+            <v-btn
+              color="red"
+              icon
+              outlined
+              title="Delete"
+              @click="accountDeleteModal"
+            >
+              <v-icon>mdi-delete-outline</v-icon>
+            </v-btn>
+          </v-col>
+          <v-spacer></v-spacer>
+          <v-btn
+            icon
+            outlined
+            tag="button"
+            :to="{name: 'accounts'}"
+            title="Back"
+            color="grey"
+          >
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
           <v-btn
             color="warning"
             icon
@@ -161,26 +185,7 @@
           >
             <v-icon>mdi-content-save-edit-outline</v-icon>
           </v-btn>
-          <v-btn
-            color="red"
-            icon
-            outlined
-            title="Delete"
-            @click="accountDeleteModal"
-          >
-            <v-icon>mdi-delete-outline</v-icon>
-          </v-btn>
-          <v-btn
-            icon
-            outlined
-            tag="button"
-            :to="{name: 'accounts'}"
-            title="Back"
-            color="grey"
-          >
-            <v-icon>mdi-home-outline</v-icon>
-          </v-btn>
-        </v-col>
+        </v-toolbar>
       </v-row>
     </v-form>
     <Error v-show="renderError"></Error>

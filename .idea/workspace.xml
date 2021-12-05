@@ -2,29 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8f68ed7-5cb8-4928-a7e9-5b5f1f61f16d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/721b4e11-eb18-4da0-be17-c312d4602bc8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/721b4e11-eb18-4da0-be17-c312d4602bc8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AccountsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AccountsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Accounts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Accounts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_15_011951_create_accounts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_15_011951_create_accounts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_components_ExampleComponent_vue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_views_Error_vue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_views_accounts_AccountEditFormLayout_vue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_views_accounts_AccountFormLayout_vue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_views_accounts_AccountTableLayout_vue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_views_accounts_Account_vue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_views_categories_CategoryTableLayout_vue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_views_categories_Category_vue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_views_pages_Login_vue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_views_pages_Register_vue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_views_transactions_TransactionMainLayout_vue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_views_transactions_Transaction_vue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_views_transactions_TransactionsAddLayout_vue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/resources_js_views_transactions_TransactionsEditLayout_vue.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/views/accounts/Account.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/accounts/Account.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/views/accounts/AccountEditFormLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/accounts/AccountEditFormLayout.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/views/accounts/AccountFormLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/accounts/AccountFormLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/accounts/AccountTableLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/accounts/AccountTableLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/views/categories/CategoryTableLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/categories/CategoryTableLayout.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -380,7 +362,7 @@
       <workItem from="1638062101501" duration="530000" />
       <workItem from="1638359051194" duration="7945000" />
       <workItem from="1638410405677" duration="5022000" />
-      <workItem from="1638671701894" duration="9628000" />
+      <workItem from="1638671701894" duration="12883000" />
     </task>
     <servers />
   </component>

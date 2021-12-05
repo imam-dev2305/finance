@@ -124,35 +124,24 @@
                     </v-card-text>
                     <v-card-actions>
                       <v-spacer></v-spacer>
-                      <v-row
-                        align="center"
-                        justify="end"
+                      <v-btn
+                        icon
+                        outlined
+                        title="Close"
+                        color="default"
+                        @click="optionsClose(list)"
                       >
-                        <v-col
-                          sm="3"
-                          md="6"
-                        >
-                          <v-btn
-                            color="blue darken-1"
-                            @click="optionsClose(list)"
-                            class="float-right"
-                          >
-                            Close
-                          </v-btn>
-                        </v-col>
-                        <v-col
-                          sm="3"
-                          md="6"
-                        >
-                          <v-btn
-                            color="warning"
-                            @click="updateCategory"
-                            class="float-right"
-                          >
-                            Update
-                          </v-btn>
-                        </v-col>
-                      </v-row>
+                        <v-icon>mdi-close</v-icon>
+                      </v-btn>
+                      <v-btn
+                        icon
+                        outlined
+                        title="Update"
+                        color="warning"
+                        @click="updateCategory"
+                      >
+                        <v-icon>mdi-content-save-edit-outline</v-icon>
+                      </v-btn>
                     </v-card-actions>
                   </v-card>
                 </v-expansion-panel-content>
@@ -177,9 +166,27 @@
                 max-width="600px"
               >
                 <v-card>
-                  <v-card-title>
-                    <span class="text-h5">Category</span>
-                  </v-card-title>
+                  <v-toolbar
+                    dark
+                    color="primary"
+                  >
+                    <v-btn
+                      icon
+                      dark
+                      @click="dialog = false"
+                    >
+                      <v-icon>mdi-close</v-icon>
+                    </v-btn>
+                    <v-toolbar-title>Category</v-toolbar-title>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                      icon
+                      outlined
+                      @click="saveCategory"
+                    >
+                      <v-icon>mdi-content-save</v-icon>
+                    </v-btn>
+                  </v-toolbar>
                   <v-card-text>
                     <v-container>
                       <v-form
@@ -228,21 +235,6 @@
                       </v-form>
                     </v-container>
                   </v-card-text>
-                  <v-card-actions>
-                    <v-spacer></v-spacer>
-                    <v-btn
-                      color="blue darken-1"
-                      @click="popDialog('')"
-                    >
-                      Close
-                    </v-btn>
-                    <v-btn
-                      color="primary darken-1"
-                      @click="saveCategory"
-                    >
-                      Save
-                    </v-btn>
-                  </v-card-actions>
                 </v-card>
               </v-dialog>
             </v-expansion-panels>
