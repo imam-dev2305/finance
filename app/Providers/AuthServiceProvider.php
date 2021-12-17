@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Models\Transactions;
 use App\Policies\AccountPolicy;
 use App\Policies\CategoryPolicy;
+use App\Policies\TransactionPolicy;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Notifications\Messages\MailMessage;
@@ -37,5 +39,9 @@ class AuthServiceProvider extends ServiceProvider
         // Categories
         Gate::define('update-categories', [CategoryPolicy::class, 'update']);
         Gate::define('delete-categories', [CategoryPolicy::class, 'delete']);
+
+        // Transactions
+        Gate::define('update-transactions', [TransactionPolicy::class, 'update']);
+        Gate::define('delete-transactions', [TransactionPolicy::class, 'delete']);
     }
 }

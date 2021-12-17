@@ -10,7 +10,7 @@ class Transactions extends Model
 {
     use HasFactory;
     protected $primaryKey = 'transaction_id';
-    protected $fillable = ['transaction_id', 'transaction_type_id', 'account_id', 'category_id', 'amount', 'currency_id', 'transaction_date', 'transaction_note', 'transaction_payee', 'status', 'user_id'];
+    protected $fillable = ['transaction_id', 'transaction_type_id', 'account_id', 'category_id', 'amount', 'destination_account_id', 'transaction_date', 'transaction_note', 'transaction_ref', 'status', 'user_id'];
     protected $hidden = ['created_at', 'updated_at'];
     public $incrementing = false;
 

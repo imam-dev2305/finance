@@ -15,16 +15,9 @@ use Ramsey\Uuid\Uuid;
 class AccountsController extends Controller
 {
     function get(Request $request) {
-        $page = $request->page;
-        $limitPerPage = $request->limitPerPage;
-//        $accounts = Accounts::pagination(['user_id' => $request->user()->user_id], (($page-1)*10), $limitPerPage);
-        $account = Accounts::where('user_id', '=', $request->user()->user_id);
-        $accounts = $account
-            ->offset((($page-1)*$limitPerPage))
-            ->limit($limitPerPage)
-            ->get();
-        $totalAccounts = $account->paginate(10);
-        $response = ['flag' => 1, 'data' => ["recordsTotal" => $totalAccounts->total(), "recordsFiltered" => $limitPerPage, "data" => $accounts], 'message' => 'record has been fetched!'];
+        $account = Accounts::Exclude($request)->where('user_id', '=', $request->user()->user_id);
+        $accounts = $account->get();
+        $response = ['flag' => 1, 'data' => ["recordsTotal" => $accounts->count(), "data" => $accounts], 'message' => 'record has been fetched!'];
         return Response::json($response, 200);
     }
 
@@ -58,18 +51,17 @@ class AccountsController extends Controller
     function edit(Request $request) {
         if ($this->validation($request) === true) {
             $accounts = Accounts::find($request->account_id);
-            if (!Gate::allows('update-accounts', $accounts)) {
-                return Response::json(['flag' => 3, 'message' => 'Prevent action!'], 401);
-            }
-            $accounts->account_name = $request->account_name;
-            $accounts->bank_account_number = $request->bank_account_number;
-            $accounts->account_type_id = $request->account_type_id;
-            $accounts->amount = preg_replace('/(?:\.)/', '$1', $request->amount);
-            $accounts->currency_id = $request->currency_id;
-            $accounts->exclude_from_stat = 0;
-            $accounts->color = $request->color;
-            if ($accounts->save()) {
-                return Response::json(['flag' => 1, 'data' => [], 'message' => 'Record has been updated!'], 200);
+            if (Gate::allows('update-accounts', $accounts)) {
+                $accounts->account_name = $request->account_name;
+                $accounts->bank_account_number = $request->bank_account_number;
+                $accounts->account_type_id = $request->account_type_id;
+                $accounts->amount = preg_replace('/(?:\.)/', '$1', $request->amount);
+                $accounts->currency_id = $request->currency_id;
+                $accounts->exclude_from_stat = 0;
+                $accounts->color = $request->color;
+                if ($accounts->save()) {
+                    return Response::json(['flag' => 1, 'data' => [], 'message' => 'Record has been updated!'], 200);
+                }
             }
         } else {
             return $this->validation($request);
@@ -77,20 +69,11 @@ class AccountsController extends Controller
     }
 
     function delete(Request $request) {
-//        $validator = Validator::make($request->all(), [
-//            'account_id' => [
-//                'exists:accounts'
-//            ]
-//        ]);
-//        if ($validator->fails()) {
-//            return ["status" => 500, "message" => $validator->errors()];
-//        }
         $accounts = Accounts::findOrFail($request->account_id);
-        if (!Gate::allows('delete-accounts', $accounts)) {
-            return Response::json(['flag' => 3, 'message' => 'Prevent action!'], 401);
+        if (Gate::allows('delete-accounts', $accounts)) {
+            $accounts->delete();
+            return Response::json(['flag' => 1, 'data' => [], 'message' => 'Record deleted!'], 200);
         }
-        $accounts->delete();
-        return Response::json(['flag' => 1, 'data' => [], 'message' => 'Record deleted!'], 200);
     }
 
     function validation($request) {

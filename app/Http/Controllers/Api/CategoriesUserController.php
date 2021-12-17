@@ -48,12 +48,14 @@ class CategoriesUserController extends Controller
         $validate = $this->validation($request);
         if ($validate['flag'] === 1) {
             $categories_user = CategoriesUser::find($request->category_id);
-            $categories_user->category_name = $request->category_name;
-            $categories_user->category_icon = $request->category_icon;
-            $categories_user->category_color = $request->category_color;
-            $categories_user->user_id = $request->user()->user_id;
-            if ($categories_user->save()) {
-                return Response::json(['flag' => 1, 'data' => [], 'message' => 'Record has been updated!'], 200);
+            if (Gate::allows('update-categories', $categories_user)) {
+                $categories_user->category_name = $request->category_name;
+                $categories_user->category_icon = $request->category_icon;
+                $categories_user->category_color = $request->category_color;
+                $categories_user->user_id = $request->user()->user_id;
+                if ($categories_user->save()) {
+                    return Response::json(['flag' => 1, 'data' => [], 'message' => 'Record has been updated!'], 200);
+                }
             }
         } else {
             return Response::json(['flag' => 2, 'message' => $validate['message']], 500);
@@ -62,11 +64,10 @@ class CategoriesUserController extends Controller
 
     function delete(Request $request) {
         $categories = CategoriesUser::findOrFail($request->category_id);
-        if (!Gate::allows('delete-categories', $categories)) {
-            return Response::json(['flag' => 3, 'message' => 'Prevent action!'], 401);
+        if (Gate::allows('delete-categories', $categories)) {
+            $categories->delete();
+            return Response::json(['flag' => 1, 'data' => [], 'message' => 'Record deleted!'], 200);
         }
-        $categories->delete();
-        return Response::json(['flag' => 1, 'data' => [], 'message' => 'Record deleted!'], 200);
     }
 
     function validation($request) {

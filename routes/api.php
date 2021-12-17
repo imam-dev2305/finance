@@ -47,15 +47,11 @@ Route::middleware(['auth:sanctum', 'json.response', 'cors'])->group(function () 
         Route::post('delete', [\App\Http\Controllers\Api\CategoriesUserController::class, 'delete']);
     });
 
-    Route::get('account_type/get', function (\App\Models\AccountTypes $accountTypes) {
-        $data = $accountTypes->all();
-        $response = ['flag' => 1, 'data' => $data, 'message' => 'Record fetched!'];
-        return \Illuminate\Support\Facades\Response::json($response);
-    });
-
-    Route::get('currencies/get', function (\App\Models\Currencies $currencies) {
-        $data = $currencies->all();
-        $response = ['flag' => 1, 'data' => $data, 'message' => 'Record fetched!'];
-        return \Illuminate\Support\Facades\Response::json($response);
+    Route::prefix('transactions')->group(function () {
+        Route::get('get', [\App\Http\Controllers\Api\TransactionsController::class, 'get']);
+        Route::get('get/{id}', [\App\Http\Controllers\Api\TransactionsController::class, 'getTranscationID']);
+        Route::post('save', [\App\Http\Controllers\Api\TransactionsController::class, 'save']);
+        Route::post('update', [\App\Http\Controllers\Api\TransactionsController::class, 'edit']);
+        Route::post('delete', [\App\Http\Controllers\Api\TransactionsController::class, 'delete']);
     });
 });

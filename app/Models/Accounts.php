@@ -13,6 +13,12 @@ class Accounts extends Model
     protected $hidden = ['created_at', 'updated_at'];
     public $incrementing = false;
 
+    function scopeExclude($query, $filter) {
+        $query->when($filter->exclude, function ($query) use ($filter) {
+           return $query->whereNotIn('account_id', [$filter->exclude]);
+        });
+    }
+
     public function users() {
         return $this->belongsTo(User::class, 'user_id', 'user_id');
     }

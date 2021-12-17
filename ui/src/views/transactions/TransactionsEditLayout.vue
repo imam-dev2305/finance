@@ -1,269 +1,421 @@
 <template>
   <div>
-
-    <v-alert
-      v-model="alert.success"
-      dense
-      outlined
-      text
-      type="success"
-      transition="scroll-x-transition"
-    >
-      {{ alert_message }}
-    </v-alert>
-
-    <v-alert
-      v-model="alert.danger"
-      dense
-      outlined
-      text
-      type="error"
-    >
-      {{ alert_message }}
-    </v-alert>
-
-    <v-alert
-      v-model="alert.danger"
-      dense
-      outlined
-      text
-      type="warning"
-    >
-      {{ alert_message }}
-    </v-alert>
-
-    <v-progress-linear
-      indeterminate
-      :active="overlay"
-    ></v-progress-linear>
-    <v-form v-show="renderPage">
-      <v-row>
-        <v-col
-          cols="12"
-          md="3"
+    <v-card>
+      <v-card-title>
+        <v-toolbar
+          fixed
+          class="bg-gradient-primary"
         >
-          <label>Account Name</label>
-        </v-col>
+          <v-btn
+            icon
+            color="white"
+            exact-path
+            :to="{name: 'transactions'}"
+          >
+            <v-icon>mdi-close</v-icon>
+          </v-btn>
+          <v-spacer></v-spacer>
+          <v-btn
+            icon
+            color="white"
+            @click.once="saveTransaction"
+          >
+            <v-icon>mdi-check</v-icon>
+          </v-btn>
+        </v-toolbar>
+      </v-card-title>
 
-        <v-col
-          cols="12"
-          md="9"
-        >
-          <v-text-field
-            id="accountName"
-            v-model="frm.account_name"
-            outlined
-            dense
-            placeholder="Account Name"
-            hide-details
-            @keyup.stop.native="alphabetOnly"
-          ></v-text-field>
-        </v-col>
+      <v-card-text>
+        <v-form ref="transactions_add">
 
-        <v-col
-          cols="12"
-          md="3"
-        >
-          <label>Bank Account Number</label>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="9"
-        >
-          <v-text-field
-            id="bankAccountNumber"
-            v-model="frm.bank_account_number"
-            outlined
-            dense
-            placeholder="Bank Account Number"
-            hide-details
-            @keyup="numberOnly"
-          ></v-text-field>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="3"
-        >
-          <label>Currency</label>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="9"
-        >
           <v-select
-            v-model="frm.currency_id"
-            :items="currency"
-            item-text="currency_name"
-            item-value="currency_id"
-            :hint="`${frm.currency_id}`"
-            persistent-hint
-            label="Currency"
+            v-model="frm.transaction_type_id"
+            :items="transaction_type"
+            item-text="transaction_type_name"
+            item-value="transaction_type_id"
+            label="Transaction Type"
+            @change="changeAccount"
           ></v-select>
-        </v-col>
 
-        <v-col
-          cols="12"
-          md="3"
-        >
-          <label>Type</label>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="9"
-        >
           <v-select
-            v-model="frm.account_type_id"
-            :items="types"
-            item-text="account_type_name"
-            item-value="account_type_id"
-            label="Type"
+            v-model="frm.account_id"
+            label="Account"
+            :items="accounts"
+            item-text="account_name"
+            item-value="account_id"
+            @change="changeDestination"
           ></v-select>
-        </v-col>
 
-        <v-col
-          cols="12"
-          md="3"
-        >
-          <label>Amount</label>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="9"
-        >
           <v-text-field
-            id="amount"
+            v-model="categories.selected"
+            label="Categories"
+            readonly
+            append-icon="mdi-apps"
+            @click:append="dialog.categories = true"
+            v-show="frm.transaction_type_id == 1 || frm.transaction_type_id == 2"
+          >
+          </v-text-field>
+
+          <v-select
+            v-model="frm.destination_account_id"
+            label="Destination Account"
+            :items="destination_account"
+            item-text="account_name"
+            item-value="account_id"
+            v-show="frm.transaction_type_id == 3"
+          ></v-select>
+
+          <v-text-field
+            v-model="frm.transaction_note"
+            label="Note"
+          ></v-text-field>
+
+          <v-text-field
             v-model="frm.amount"
-            dense
-            placeholder="Amount"
+            label="amount"
             reverse
             @keyup.stop.native="numberOnly"
             @blur="currencyOnly"
             @focus="numbers"
           ></v-text-field>
-        </v-col>
 
-        <v-col
-          offset-md="3"
-          cols="12"
+          <v-menu
+            ref="menu"
+            v-model="menu_date"
+            transition="scale-transition"
+            offset-y
+            min-width="auto"
+          >
+            <template slot="activator" slot-scope="{on, attrs}">
+              <v-text-field
+                v-model="frm.transaction_date"
+                label="Transaction Date"
+                append-icon="mdi-calendar"
+                @click:append="menu_date = !menu_date"
+                readonly
+                v-bind="attrs"
+                v-on="on"
+              ></v-text-field>
+            </template>
+            <v-date-picker
+              v-model="frm.transaction_date"
+              no-title
+            ></v-date-picker>
+          </v-menu>
+
+          <v-menu
+            ref="menu_time"
+            v-model="menu_time"
+            :close-on-content-click="false"
+            :nudge-right="40"
+            :return-value.sync="frm.transaction_time"
+            transition="scale-transition"
+            offset-y
+            max-width="290px"
+            min-width="290px"
+          >
+            <template v-slot:activator="{ on, attrs }">
+              <v-text-field
+                v-model="frm.transaction_time"
+                label="Transaction Time"
+                append-icon="mdi-clock-time-four-outline"
+                @click:append="menu_time = !menu_time"
+                readonly
+                v-bind="attrs"
+                v-on="on"
+              ></v-text-field>
+            </template>
+            <v-time-picker
+              v-if="menu_time"
+              v-model="frm.transaction_time"
+              full-width
+              scrollable
+              format="24hr"
+              use-seconds
+              @click:second="$refs.menu_time.save(frm.transaction_time)"
+              @click:minute="$refs.menu_time.save(frm.transaction_time)"
+              @click:hour="$refs.menu_time.save(frm.transaction_time)"
+            ></v-time-picker>
+          </v-menu>
+
+        </v-form>
+      </v-card-text>
+
+    </v-card>
+
+    <v-dialog
+      v-model="dialog.categories"
+      fullscreen
+      hide-overlay
+      transition="dialog-bottom-transition"
+      scrollable
+    >
+      <v-card tile>
+        <v-toolbar
+          flat
+          dark
+          color="primary"
         >
           <v-btn
-            color="warning"
-            @click="accountUpdate"
+            icon
+            dark
+            @click="dialog.categories = false"
+            v-if="categories.prev_list.length < 1"
           >
-            Update
+            <v-icon>mdi-close</v-icon>
           </v-btn>
           <v-btn
-            class="mx-2"
-            outlined
-            :to="{name: 'accounts'}"
+            icon
+            dark
+            @click="showPrevPanels"
+            v-else
           >
-            Back
+            <v-icon>mdi-arrow-left</v-icon>
           </v-btn>
-        </v-col>
-      </v-row>
-    </v-form>
-    <Error v-show="renderError"></Error>
+          <v-toolbar-title>Categories</v-toolbar-title>
+          <v-spacer></v-spacer>
+          <v-btn
+            dark
+            icon
+          >
+            <v-icon>mdi-check</v-icon>
+          </v-btn>
+        </v-toolbar>
+        <v-card-text>
+          <v-expansion-panels>
+            <v-expansion-panel
+              readonly
+              v-for="(category, k) in categories.current_list"
+              :key="k"
+            >
+              <v-expansion-panel-header
+                hide-actions
+                class="white--text"
+                @click="showChildPanels(category)"
+                :color="category.category_color"
+              >{{category.category_name}}</v-expansion-panel-header>
+            </v-expansion-panel>
+          </v-expansion-panels>
+        </v-card-text>
+
+        <div style="flex: 1 1 auto;"></div>
+      </v-card>
+    </v-dialog>
+
+    <v-snackbar
+      v-model="snackbar.value"
+      :timeout="snackbar.timeout"
+      :color="snackbar.color"
+    >
+      {{snackbar.message}}
+    </v-snackbar>
   </div>
 </template>
 
 <script>
-  import Error from '@/views/Error.vue'
+  var d = new Date();
+  var dd = ('0' + d.getDate()).slice(-2)
+  var mm = ('0' + d.getMonth()).slice(-2)
+  var yy = d.getFullYear()
+  var hh = ('0' + d.getHours()).slice(-2)
+  var ii = ('0' + d.getMinutes()).slice(-2)
+  var ss = ('0' + d.getSeconds()).slice(-2)
 
   export default {
-    name: 'AccountEditFormLayout',
-    components: {
-      Error,
-    },
+    name: 'TransactionsAddLayout',
     data() {
       return {
-        renderPage: false,
-        renderError: false,
         frm: {
-          account_name: '',
-          account_type_id: '',
-          bank_account_number: '',
-          currency_id: '',
+          transaction_type_id: '',
+          account_id: '',
+          category_id: '',
+          destination_account_id: 0,
+          transaction_note: '',
           amount: '',
+          transaction_date: `${yy}-${mm}-${dd}`,
+          transaction_time: `${hh}:${ii}:${ss}`,
         },
-        types: this.$store.getters.account_type,
-        currency: this.$store.getters.currency,
-        overlay: true,
-        alert: {
-          success: false,
-          danger: false,
-          warning: false,
+        menu_date: false,
+        menu_time: false,
+        dialog: {
+          categories: false
         },
-        alert_message: '',
+        transaction_type: this.$store.getters.transaction_type,
+        list_accounts: [],
+        accounts: [],
+        destination_account: [],
+        categories: {
+          current_list: [],
+          prev_list: [],
+          selected: '',
+        },
+        snackbar: {
+          value: false,
+          timeout: 2000,
+          message: '',
+          color: 'success',
+        },
       }
     },
     mounted() {
-      this.getAccount()
+      this.getCategories()
+      this.getAccounts()
+      this.getTransaction()
+    },
+    watch: {
+      'frm.account_id': function (val) {
+        this.changeDestination()
+      }
     },
     methods: {
-      numberOnly(e) {
-        if (e.target.value.match(/^([\d]+$)/g) !== null) {
-          this.frm.amount = e.target.value.toString()
+      getAccounts() {
+        axios.post('account/get', {}, {
+          headers: {
+            Authorization: `Bearer ${this.$store.getters.bearer}`,
+          },
+        }).then((response) => {
+          const data = response.data.data.data
+          this.accounts = data
+          if (this.frm.transaction_type_id == 3) {
+            this.accounts.push({account_id: 0, account_name: 'OTHERS'})
+          }
+        }).catch((e) => {
+          const response = e.response.data
+        })
+      },
+
+      getCategories() {
+        axios.get('categories/get', {
+          headers: {
+            Authorization: `Bearer ${this.$store.getters.bearer}`
+          }
+        }).then((response) => {
+          const data = JSON.parse(response.data.data.data)
+          this.categories.current_list = [...data]
+        }).catch((e) => {
+          const response = e.response.data
+        })
+      },
+
+      getTransaction() {
+        axios.get(`transactions/get/${this.$route.params.id}`, {
+          headers: {
+            Authorization: `Bearer ${this.$store.getters.bearer}`,
+          },
+        }).then((response) => {
+          const data = JSON.stringify(response.data.data[0])
+          this.frm = JSON.parse(data)
+          const d = new Date(JSON.parse(data).transaction_date)
+          const dd = ('0' + d.getDate()).slice(-2)
+          const mm = ('0' + (d.getMonth() + 1)).slice(-2)
+          const yy = d.getFullYear()
+          const hh = ('0' + d.getHours()).slice(-2)
+          const ii = ('0' + d.getMinutes()).slice(-2)
+          const ss = ('0' + d.getSeconds()).slice(-2)
+          this.frm.amount = JSON.parse(data).amount.toLocaleString('id')
+          this.frm.transaction_date = `${yy}-${mm}-${dd}`
+          this.frm.transaction_time = `${hh}:${ii}:${ss}`
+        })
+      },
+
+      saveTransaction() {
+        var data = new Object();
+        data.transaction_type_id = parseInt(this.frm.transaction_type_id)
+        if ([3, 2].indexOf(data.transaction_type_id) >= 0) {
+          if (this.frm.amount.replace(/(?:\.)/g, '') < 0) {
+            data.amount = this.frm.amount
+          } else {
+            data.amount = `-${this.frm.amount}`
+          }
         } else {
-          // eslint-disable-next-line no-useless-escape
-          this.frm.amount = e.target.value.replace(new RegExp('([\[a-zA-Z]*)', 'g'), '')
+          data.amount = this.frm.amount
+        }
+        data.transaction_id = this.frm.transaction_id
+        data.account_id = this.frm.account_id
+        data.category_id = this.frm.category_id
+        data.destination_account_id = this.frm.destination_account_id
+        data.transaction_note = this.frm.transaction_note
+        data.transaction_date = this.frm.transaction_date
+        data.transaction_time = this.frm.transaction_time
+        axios.post('transactions/update', data, {
+          headers: {
+            Authorization: `Bearer ${this.$store.getters.bearer}`
+          }
+        }).then((response) => {
+          const data = response.data
+          this.snackbar.value = true
+          this.snackbar.message = data.message
+          this.snackbar.color = 'success'
+          setTimeout( () => {
+            this.$router.push({name: 'transactions'})
+          }, 2000)
+        })
+      },
+
+      showChildPanels(item) {
+        if (item.child.length > 0) {
+          this.categories.prev_list.push(this.categories.current_list)
+          this.categories.current_list = item.child
+          item.child = []
+          this.categories.current_list.unshift(item)
+        } else {
+          this.frm.category_id = item.category_id
+          this.categories.selected = item.category_name
+          this.categories.prev_list = []
+          this.getCategories()
+          this.dialog.categories = false
         }
       },
+
+      showPrevPanels() {
+        this.categories.current_list = this.categories.prev_list[this.categories.prev_list.length - 1]
+        this.categories.prev_list.length -= 1;
+      },
+
+      changeAccount() {
+        this.getAccounts()
+        this.frm.category_id = ''
+        this.frm.destination_account_id = ''
+        this.frm.amount = ''
+      },
+
+      changeDestination() {
+        axios.post('account/get', {
+          exclude: this.frm.account_id
+        }, {
+          headers: {
+            Authorization: `Bearer ${this.$store.getters.bearer}`,
+          },
+        }).then((response) => {
+          const data = response.data.data.data
+          this.destination_account = data
+          if (this.frm.account_id !== 0) {
+            this.destination_account.push({account_id: 0, account_name: 'OTHERS'})
+          }
+        }).catch((e) => {
+          const response = e.response.data
+        })
+      },
+
+      numberOnly(e) {
+        if (e.target.value.match(/^([\d]+$)/g) !== null) {
+          e.target.value = e.target.value.toString()
+        } else {
+          // eslint-disable-next-line no-useless-escape
+          e.target.value = e.target.value.replace(new RegExp('(\[a-zA-Z]*)', 'g'), '')
+        }
+      },
+
       numbers(e) {
         const num = e.target.value.replace(/(?:\.)/g, '')
         if (num.match(/([\d]+$)/g) !== null) {
           this.frm.amount = num.toString()
         }
       },
-      getAccount() {
-        /* eslint-disable */
-        axios.get(`account/get/${this.$route.params.id}`, {
-          headers: {
-            Authorization: `Bearer ${this.$store.getters.bearer}`
-          }
-        }).then((response) => {
-          const data = response.data;
-          data.data.amount = data.data.amount.toLocaleString('id');
-          this.frm = data.data;
-          this.overlay = false;
-          this.renderPages();
-        });
-      },
-      renderPages() {
-        if (this.frm.account_name !== '') {
-          this.renderPage = true
-        } else {
-          this.renderError = true
-        }
-        this.overlay = false
-      },
-      accountUpdate() {
-        var data = this.frm
-        axios.post('account/edit', data, {
-          headers: {
-            Authorization: `Bearer ${this.$store.getters.bearer}`
-          }
-        }).then((response) => {
-          this.alert_message = response.data.message
-          if (response.data.status === '400') {
-            this.alert.danger = true
-            setTimeout(() => this.alert.danger = false, 3000)
-          } else if (response.data.status === '403') {
-            this.alert.warning = true
-            setTimeout(() => this.alert.warning = false, 3000)
-          } else {
-            this.alert.success = true
-            setTimeout(() => this.alert.success = false, 3000)
-          }
-        });
-      },
-    },
+    }
   }
 </script>
 
 <style scoped>
+
 </style>

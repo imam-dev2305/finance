@@ -94,7 +94,7 @@ const routes = [
         name: 'transactions-edit',
         meta: { requiresAuth: true },
         component: () => import('@/views/transactions/TransactionsEditLayout.vue'),
-      },
+      }
     ],
   },
   {

@@ -197,6 +197,11 @@
           this.loading = false
         }).catch((e) => {
           var data = e.response.data
+          var response = e.response.status
+          if (response === 401) {
+            localStorage.clear();
+            this.$router.push({name: 'pages-login'})
+          }
         });
       },
       accountDeleteModal(e) {
