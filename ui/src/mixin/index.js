@@ -24,12 +24,14 @@ export default Vue.mixin({
 
       return true
     },
-    currencyOnly(e) {
-      const num = e.target.value.replace(/(?:\.)/g, '')
-      if (num.match(/([\d]+$)/g) !== null) {
-        e.target.value = num.replace(/\d{1,3}(?=(\d{3})+(?!\d))/g, '$&.')
+    currencyOnly(e, obj = {}) {
+      let num = e.target.value
+      if (num.match(/^([\d])+(\.\d{2}|)$/g) !== null) {
+        e.target.value = parseFloat(num).toLocaleString('id', obj)
+        // e.target.value = num.replace(/\d{1,3}(?=(\d{3})+(?!\d))/g, '$&.')
       } else {
-        e.target.value = num.substr(0, (e.target.value.length - 1)).replace(/\d{1,3}(?=(\d{3})+(?!\d))/g, '$&.')
+        e.target.value = num.substr(0, (e.target.value.length - 1)).toLocaleString('id', obj)
+        // e.target.value = num.substr(0, (e.target.value.length - 1)).replace(/\d{1,3}(?=(\d{3})+(?!\d))/g, '$&.')
       }
     },
   },

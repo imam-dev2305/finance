@@ -5,6 +5,7 @@ namespace App\Exceptions;
 use Illuminate\Auth\AuthenticationException;
 use Illuminate\Database\QueryException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Routing\Exceptions\InvalidSignatureException;
 use Illuminate\Support\Facades\Response;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
@@ -57,6 +58,10 @@ class Handler extends ExceptionHandler
             } else {
                 return Response::json(['flag' => 3, 'message' => $e->getMessage()], 500);
             }
+        });
+
+        $this->renderable(function (InvalidSignatureException $e, \Illuminate\Http\Request $request) {
+            return Response::make("Link expired. Please click <a href='".url('/api/resend/verification').'/'.$request->route('id')."'>here</a> to resend email verification.");
         });
 
 //        $this->renderable(function (ThrottleRequestsException $e, $request) {

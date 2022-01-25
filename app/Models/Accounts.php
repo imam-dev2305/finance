@@ -9,7 +9,7 @@ class Accounts extends Model
 {
     use HasFactory;
     protected $primaryKey = 'account_id';
-    protected $fillable = ['account_id', 'account_name', 'bank_account_number', 'account_type_id', 'currency_id', 'color', 'user_id', 'exclude_from_stat'];
+    protected $fillable = ['account_id', 'account_name', 'bank_account_number', 'account_type_id', 'currency_id', 'color', 'deleteable', 'user_id', 'exclude_from_stat'];
     protected $hidden = ['created_at', 'updated_at'];
     public $incrementing = false;
 
@@ -28,7 +28,7 @@ class Accounts extends Model
     }
 
     public function currencies() {
-        return $this->belongsTo(Currencies::class, 'currency_id', 'currency_id');
+        return $this->belongsTo(CurrencyExchange::class, 'currency_id', 'currency_exchange_id');
     }
 
     public function transactions() {

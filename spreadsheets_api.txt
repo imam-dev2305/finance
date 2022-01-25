@@ -1,0 +1,12 @@
+URL
+PUT https://sheets.googleapis.com/v4/spreadsheets/1w6B9ls0cshU-snYOP5cpzu6dI5fO7ZOVLz7Ouqwd-Ds/values/Sheet1!A1?valueInputOption=USER_ENTERED
+Request body
+{
+  "range": "Sheet1!A1",
+  "majorDimension": "ROWS",
+  "values": [
+    ['=1*GOOGLEFINANCE("CURRENCY:USDIDR")']
+  ],
+}
+AFTER Request get the value with
+GET https://sheets.googleapis.com/v4/spreadsheets/1w6B9ls0cshU-snYOP5cpzu6dI5fO7ZOVLz7Ouqwd-Ds/values/Sheet1!A1

@@ -1,239 +1,172 @@
 <template>
-  <div class="auth-wrapper auth-v1">
-    <div class="auth-inner">
-      <v-card class="auth-card">
-        <!-- logo -->
-        <v-card-title class="d-flex align-center justify-center py-7">
-          <router-link
-            to="/"
-            class="d-flex align-center"
-          >
-            <v-img
-              src="assets/images/logos/logo.svg"
-              max-height="30px"
-              max-width="30px"
-              alt="logo"
-              contain
-              class="me-3 "
-            ></v-img>
-
-            <h2 class="text-2xl font-weight-semibold">
-              Materio
-            </h2>
-          </router-link>
-        </v-card-title>
-
-        <!-- title -->
-        <v-card-text>
-          <p class="text-2xl font-weight-semibold text--primary mb-2">
-            Welcome to Materio! 👋🏻
-          </p>
-          <p class="mb-2">
-            Please sign-in to your account and start the adventure
-          </p>
-        </v-card-text>
-
-        <!-- login form -->
-        <v-card-text>
-          <v-alert
-            v-model="alert.danger"
-            dense
-            outlined
-            text
-            type="warning"
-          >
-            {{ alert_message }}
-          </v-alert>
-          <v-alert
-            v-model="alert.success"
-            dense
-            outlined
-            text
-            type="success"
-          >
-            {{ alert_message }}
-          </v-alert>
-          <v-form>
-            <v-text-field
-              v-model="frmLogin.email"
-              outlined
-              label="Email"
-              placeholder="john@example.com"
-              hide-details
-              class="mb-3"
-            ></v-text-field>
-
-            <v-text-field
-              v-model="frmLogin.password"
-              outlined
-              :type="isPasswordVisible ? 'text' : 'password'"
-              label="Password"
-              placeholder="············"
-              :append-icon="isPasswordVisible ? icons.mdiEyeOffOutline : icons.mdiEyeOutline"
-              hide-details
-              @click:append="isPasswordVisible = !isPasswordVisible"
-            ></v-text-field>
-
-            <div class="d-flex align-center justify-space-between flex-wrap">
-              <v-checkbox
-                label="Remember Me"
-                hide-details
-                class="me-3 mt-1"
-              >
-              </v-checkbox>
-
-              <!-- forgot link -->
-              <a
-                href="javascript:void(0)"
-                class="mt-1"
-              >
-                Forgot Password?
-              </a>
-            </div>
-
-            <v-btn
-              block
-              color="primary"
-              class="mt-6"
-              @click="loginUser"
-            >
-              Login
-            </v-btn>
-          </v-form>
-        </v-card-text>
-
-        <!-- create new account  -->
-        <v-card-text class="d-flex align-center justify-center flex-wrap mt-2">
-          <span class="me-2">
-            New on our platform?
-          </span>
-          <router-link :to="{name:'pages-register'}">
-            Create an account
-          </router-link>
-        </v-card-text>
-
-        <!-- divider -->
-        <v-card-text class="d-flex align-center mt-2">
-          <v-divider></v-divider>
-          <span class="mx-5">or</span>
-          <v-divider></v-divider>
-        </v-card-text>
-
-        <!-- social links -->
-        <v-card-actions class="d-flex justify-center">
-          <v-btn
-            v-for="link in socialLink"
-            :key="link.icon"
-            icon
-            class="ms-1"
-          >
-            <v-icon :color="$vuetify.theme.dark ? link.colorInDark : link.color">
-              {{ link.icon }}
-            </v-icon>
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </div>
-
-    <!-- background triangle shape  -->
-    <img
-      class="auth-mask-bg"
-      height="173"
-      :src="`/assets/images/misc/mask-${$vuetify.theme.dark ? 'dark':'light'}.png`"
+  <v-container>
+    <v-row
+      align="center"
+      justify="center"
     >
+      <v-col
+        cols="6"
+      >
+        <v-stepper v-model="step">
+          <v-stepper-header>
+            <v-stepper-step
+              :complete="step > 1"
+              step="1"
+            >
+              Profile
+            </v-stepper-step>
 
-    <!-- tree -->
-    <v-img
-      class="auth-tree"
-      width="247"
-      height="185"
-      src="/assets/images/misc/tree.png"
-    ></v-img>
+            <v-divider></v-divider>
 
-    <!-- tree  -->
-    <v-img
-      class="auth-tree-3"
-      width="377"
-      height="289"
-      src="/assets/images/misc/tree-3.png"
-    ></v-img>
-  </div>
+            <v-stepper-step
+              step="2"
+            >
+              Country
+            </v-stepper-step>
+          </v-stepper-header>
+
+          <v-stepper-items>
+            <v-stepper-content step="1">
+              <v-form
+                ref="profile"
+                lazy-validation
+              >
+                <v-text-field
+                  v-model="frm.name"
+                  :rules="rules.name"
+                  label="Name"
+                ></v-text-field>
+
+                <v-text-field
+                  v-model="frm.email"
+                  type="email"
+                  :rules="rules.email"
+                  :error-messages="error.email"
+                  :error-count="error.email.length"
+                  label="Email"
+                >
+                </v-text-field>
+
+                <v-text-field
+                  :append-icon="password_visible ? 'mdi-eye':'mdi-eye-off'"
+                  :type="password_visible ? 'text':'password'"
+                  v-model="frm.password"
+                  :rules="rules.password"
+                  label="Password"
+                  @click:append="password_visible = !password_visible"
+                ></v-text-field>
+              </v-form>
+
+              <v-toolbar>
+                <v-btn
+                  :to="{name: 'pages-login'}"
+                >
+                  Cancel
+                </v-btn>
+                <v-spacer></v-spacer>
+                <v-btn
+                  color="primary"
+                  @click="nextStep"
+                >
+                  Continue
+                </v-btn>
+              </v-toolbar>
+            </v-stepper-content>
+
+            <v-stepper-content step="2">
+              <v-form
+                ref="currencies"
+                lazy-validation
+              >
+                <v-select
+                  v-model="frm.base_currency"
+                  :rules="rules.base_currency"
+                  :items="currencies"
+                  item-value="code"
+                  item-text="country"
+                  placeholder="Country"
+                ></v-select>
+              </v-form>
+
+              <v-toolbar>
+                <v-btn
+                  @click="step = 1"
+                >
+                  Back
+                </v-btn>
+                <v-spacer></v-spacer>
+                <v-btn
+                  @click="submitForm"
+                >
+                  Submit
+                </v-btn>
+              </v-toolbar>
+            </v-stepper-content>
+
+          </v-stepper-items>
+        </v-stepper>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
   // eslint-disable-next-line object-curly-newline
-  import {
-    mdiFacebook,
-    mdiTwitter,
-    mdiGithub,
-    mdiGoogle,
-    mdiEyeOutline,
-    mdiEyeOffOutline,
-  } from '@mdi/js'
-  import { ref } from '@vue/composition-api'
 
   export default {
-    setup() {
-      const isPasswordVisible = ref(false)
-      const socialLink = [
-        {
-          icon: mdiFacebook,
-          color: '#4267b2',
-          colorInDark: '#4267b2',
-        },
-        {
-          icon: mdiTwitter,
-          color: '#1da1f2',
-          colorInDark: '#1da1f2',
-        },
-        {
-          icon: mdiGithub,
-          color: '#272727',
-          colorInDark: '#fff',
-        },
-        {
-          icon: mdiGoogle,
-          color: '#db4437',
-          colorInDark: '#db4437',
-        },
-      ]
-
-      return {
-        isPasswordVisible,
-        socialLink,
-
-        icons: {
-          mdiEyeOutline,
-          mdiEyeOffOutline,
-        },
-      }
-    },
+    name: 'Register',
     data() {
       return {
-        frmLogin: {
+        step: 1,
+        frm: {
+          name: '',
           email: '',
+          base_currency: '',
           password: '',
         },
-        alert: {
-          danger: false,
-          success: false,
+        rules: {
+          name: [
+            v => !!v || 'name is required',
+          ],
+          email: [
+            v => !!v || 'email is required',
+            v => /.+@.+\..+/.test(v) || 'email must be valid',
+          ],
+          password: [
+            v => !!v || 'password is required',
+            v => (v && v.length <= 15) || 'password must less than 15 characters'
+          ],
+          base_currency: [
+            v => !!v || 'currency is required',
+          ],
         },
-        alert_message: '',
+        error: {
+          email: '',
+        },
+        password_visible: false,
+        currencies: [],
       }
     },
+    mounted() {
+      this.getCurrencies();
+    },
     methods: {
-      loginUser() {
-        /* eslint-disable */
-        axios.post('/login', this.frmLogin).then((response) => {
-          var data = response.data
-          this.$store.commit('USER_LOGIN', data.data)
-          this.$router.push('/')
-        }).catch(e => {
-          var data = e.response.data
-          switch (data.flag) {
-            case 2:
-              this.alert.danger = false
-              this.alert.success = false
+      getCurrencies() {
+        axios.get('country/get')
+        .then((response) => {
+          const data = JSON.stringify(response.data.data)
+          this.currencies = JSON.parse(data)
+        })
+      },
+
+      nextStep() {
+        if (this.$refs.profile.validate()) {
+          axios.post('regis_validation', this.frm)
+            .then((response) => {
+              this.step += 1
+            })
+            .catch((e) => {
+              const data = e.response.data
               Object.keys(this.error).forEach((key) => {
                 if (key in data.message) {
                   this.error[key] = data.message[key]
@@ -241,16 +174,21 @@
                   this.error[key] = ''
                 }
               })
-              break
-            case 3:
-            default:
-              this.alert.danger = true
-              this.alert_message = data.message
-              break
-          }
-        })
+            })
+        }
       },
-    },
+
+      submitForm() {
+        if (this.$refs.currencies.validate()) {
+          axios.post('regis', this.frm)
+          .then((response) => {
+            const data = response.data.data
+            this.$store.commit('USER_LOGIN', data)
+            this.$router.push('/')
+          })
+        }
+      },
+    }
   }
 </script>
 

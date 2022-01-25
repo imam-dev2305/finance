@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCurrenciesTable extends Migration
+class AddAccountsTableDeleteable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateCurrenciesTable extends Migration
      */
     public function up()
     {
-        Schema::create('currencies', function (Blueprint $table) {
-            $table->integer('currency_id')->autoIncrement()->primary();
-            $table->string('country');
-            $table->string('code');
-            $table->timestamps();
+        Schema::table('accounts', function (Blueprint $table) {
+           $table->integer('deleteable');
         });
     }
 
@@ -28,6 +25,6 @@ class CreateCurrenciesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('currencies');
+        //
     }
 }

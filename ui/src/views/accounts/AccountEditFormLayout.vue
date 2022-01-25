@@ -1,193 +1,193 @@
 <template>
   <div>
-    <v-progress-linear
-      indeterminate
-      :active="overlay"
-    ></v-progress-linear>
-    <v-form v-show="renderPage">
-      <v-row>
-        <v-col
-          cols="12"
-          md="3"
-        >
-          <label>Account Name</label>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="9"
-        >
-          <v-text-field
-            id="accountName"
-            v-model="frm.account_name"
-            dense
-            placeholder="Account Name"
-            :error-count="frmError.account_name.length"
-            :error-messages="frmError.account_name"
-            @keyup.stop.native="alphabetOnly"
-          ></v-text-field>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="3"
-        >
-          <label>Bank Account Number</label>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="9"
-        >
-          <v-text-field
-            id="bankAccountNumber"
-            v-model="frm.bank_account_number"
-            dense
-            placeholder="Bank Account Number"
-            hide-details
-            :error-count="frmError.bank_account_number.length"
-            :error-messages="frmError.bank_account_number"
-            @keyup="numberOnly"
-          ></v-text-field>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="3"
-        >
-          <label>Currency</label>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="9"
-        >
-          <v-select
-            v-model="frm.currency_id"
-            :items="currency"
-            item-text="currency_name"
-            item-value="currency_id"
-            :hint="`${frm.currency_id}`"
-            persistent-hint
-            label="Currency"
-            dense
-            :error-count="frmError.currency_id.length"
-            :error-messages="frmError.currency_id"
-          ></v-select>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="3"
-        >
-          <label>Type</label>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="9"
-        >
-          <v-select
-            v-model="frm.account_type_id"
-            :items="types"
-            item-text="account_type_name"
-            item-value="account_type_id"
-            label="Type"
-            dense
-            :error-count="frmError.account_type_id.length"
-            :error-messages="frmError.account_type_id"
-          ></v-select>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="3"
-        >
-          <label>Amount</label>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="9"
-        >
-          <v-text-field
-            id="amount"
-            v-model="frm.amount"
-            dense
-            placeholder="Amount"
-            reverse
-            :error-count="frmError.amount.length"
-            :error-messages="frmError.amount"
-            @keyup.stop.native="numberOnly"
-            @blur="currencyOnly"
-            @focus="numbers"
-          ></v-text-field>
-        </v-col>
-
-        <v-col
-          cols="12"
-          md="3"
-        >
-          <label>Color</label>
-        </v-col>
-        <v-col
-          cols="12"
-          md="9"
-        >
-          <v-select
-            v-model="frm.color"
-            dense
-            :items="['bg-gradient-red', 'bg-gradient-orange', 'bg-gradient-yellow', 'bg-gradient-green', 'bg-gradient-light-blue', 'bg-gradient-blue', 'bg-gradient-purple', 'bg-gradient-primary']"
-          >
-            <template slot="item" slot-scope="{item}">
-              <div :class="item" style="width: 100%; min-height: 20px;"></div>
-            </template>
-            <template slot="selection" slot-scope="{item}">
-              <div :class="item" style="width: 100%; min-height: 20px;"></div>
-            </template>
-          </v-select>
-        </v-col>
-
+    <v-card>
+      <v-card-title>
         <v-toolbar
-          dense
+          fixed
           elevation="0"
+          class="bg-gradient-primary"
         >
-          <v-col
-            offset-md="3"
-          >
-            <v-btn
-              color="red"
-              icon
-              outlined
-              title="Delete"
-              @click="accountDeleteModal"
-            >
-              <v-icon>mdi-delete-outline</v-icon>
-            </v-btn>
-          </v-col>
-          <v-spacer></v-spacer>
           <v-btn
             icon
-            outlined
+            exact-path
             tag="button"
             :to="{name: 'accounts'}"
             title="Back"
-            color="grey"
+            color="white"
           >
             <v-icon>mdi-close</v-icon>
           </v-btn>
+          <v-spacer></v-spacer>
           <v-btn
-            color="warning"
+            color="white"
             icon
-            outlined
+            title="Delete"
+            @click="accountDeleteModal"
+          >
+            <v-icon>mdi-delete-outline</v-icon>
+          </v-btn>
+          <v-btn
+            color="white"
+            icon
             title="Update"
             @click="accountUpdate"
           >
-            <v-icon>mdi-content-save-edit-outline</v-icon>
+            <v-icon>mdi-check</v-icon>
           </v-btn>
         </v-toolbar>
-      </v-row>
-    </v-form>
+      </v-card-title>
+      <v-card-text>
+        <v-progress-linear
+          indeterminate
+          :active="overlay"
+        ></v-progress-linear>
+        <v-form v-show="renderPage">
+          <v-row>
+            <v-col
+              cols="12"
+              md="3"
+            >
+              <label>Account Name</label>
+            </v-col>
+
+            <v-col
+              cols="12"
+              md="9"
+            >
+              <v-text-field
+                id="accountName"
+                v-model="frm.account_name"
+                dense
+                placeholder="Account Name"
+                :error-count="frmError.account_name.length"
+                :error-messages="frmError.account_name"
+                @keyup.stop.native="alphabetOnly"
+              ></v-text-field>
+            </v-col>
+
+            <v-col
+              cols="12"
+              md="3"
+            >
+              <label>Bank Account Number</label>
+            </v-col>
+
+            <v-col
+              cols="12"
+              md="9"
+            >
+              <v-text-field
+                id="bankAccountNumber"
+                v-model="frm.bank_account_number"
+                dense
+                placeholder="Bank Account Number"
+                hide-details
+                :error-count="frmError.bank_account_number.length"
+                :error-messages="frmError.bank_account_number"
+                @keyup="numberOnly"
+              ></v-text-field>
+            </v-col>
+
+            <v-col
+              cols="12"
+              md="3"
+            >
+              <label>Currency</label>
+            </v-col>
+
+            <v-col
+              cols="12"
+              md="9"
+            >
+              <v-select
+                v-model="frm.currency_id"
+                :items="currency"
+                item-text="currency_exchange_name"
+                item-value="currency_exchange_id"
+                persistent-hint
+                label="Currency"
+                dense
+                :error-count="frmError.currency_id.length"
+                :error-messages="frmError.currency_id"
+              ></v-select>
+            </v-col>
+
+            <v-col
+              cols="12"
+              md="3"
+            >
+              <label>Type</label>
+            </v-col>
+
+            <v-col
+              cols="12"
+              md="9"
+            >
+              <v-select
+                v-model="frm.account_type_id"
+                :items="types"
+                item-text="account_type_name"
+                item-value="account_type_id"
+                label="Type"
+                dense
+                :error-count="frmError.account_type_id.length"
+                :error-messages="frmError.account_type_id"
+              ></v-select>
+            </v-col>
+
+            <v-col
+              cols="12"
+              md="3"
+            >
+              <label>Amount</label>
+            </v-col>
+
+            <v-col
+              cols="12"
+              md="9"
+            >
+              <v-text-field
+                id="amount"
+                v-model="frm.amount"
+                dense
+                placeholder="Amount"
+                reverse
+                :error-count="frmError.amount.length"
+                :error-messages="frmError.amount"
+                @keyup.stop.native="numberOnly"
+                @blur="currencyOnly"
+                @focus="numbers"
+              ></v-text-field>
+            </v-col>
+
+            <v-col
+              cols="12"
+              md="3"
+            >
+              <label>Color</label>
+            </v-col>
+            <v-col
+              cols="12"
+              md="9"
+            >
+              <v-select
+                v-model="frm.color"
+                dense
+                :items="['bg-gradient-red', 'bg-gradient-orange', 'bg-gradient-yellow', 'bg-gradient-green', 'bg-gradient-light-blue', 'bg-gradient-blue', 'bg-gradient-purple', 'bg-gradient-primary']"
+              >
+                <template slot="item" slot-scope="{item}">
+                  <div :class="item" style="width: 100%; min-height: 20px;"></div>
+                </template>
+                <template slot="selection" slot-scope="{item}">
+                  <div :class="item" style="width: 100%; min-height: 20px;"></div>
+                </template>
+              </v-select>
+            </v-col>
+          </v-row>
+        </v-form>
+      </v-card-text>
+    </v-card>
+
     <Error v-show="renderError"></Error>
 
     <v-dialog
@@ -260,12 +260,12 @@
           amount: '',
         },
         types: this.$store.getters.account_type,
-        currency: this.$store.getters.currency,
+        currency: [],
         overlay: true,
         dialog: false,
         snackbar: {
           value: false,
-          timeout: 2000,
+          timeout: 1000,
           message: '',
           color: 'success',
         }
@@ -291,6 +291,7 @@
     },
     mounted() {
       this.getAccount()
+      this.getCurrency()
     },
     methods: {
       alphabetOnly(e) {
@@ -300,6 +301,7 @@
           this.frm.account_name = e.target.value.substr(0, (e.target.value.length - 1))
         }
       },
+
       numberOnly(e) {
         if (e.target.value.match(/^([\d]+$)/g) !== null) {
           e.target.value = e.target.value.toString()
@@ -308,12 +310,26 @@
           e.target.value = e.target.value.replace(new RegExp('([\[a-zA-Z]*)', 'g'), '')
         }
       },
+
       numbers(e) {
         const num = e.target.value.replace(/(?:\.)/g, '')
         if (num.match(/([\d]+$)/g) !== null) {
           this.frm.amount = num.toString()
         }
       },
+
+      getCurrency() {
+        axios.get('currencies/get', {
+          headers: {
+            Authorization: `Bearer ${this.$store.getters.bearer}`
+          }
+        })
+          .then((response) => {
+            const data = JSON.stringify(response.data.data)
+            this.currency = JSON.parse(data)
+          });
+      },
+
       getAccount() {
         /* eslint-disable */
         axios.get(`account/get/${this.$route.params.id}`, {
@@ -346,6 +362,9 @@
           this.snackbar.value = true
           this.snackbar.message = 'Update successfull'
           this.snackbar.color = 'success'
+          setTimeout(() => {
+            this.$router.push({name: 'accounts'})
+          }, 1500)
         }).catch((e) => {
           var data = e.response.data
           switch (data.flag) {
@@ -378,7 +397,10 @@
           },
         }).then((response) => {
           this.snackbar.value = true
-          this.snackbar.message = "Record has been deleted"
+          this.snackbar.message = response.data.message
+          if (response.data.flag === 2) {
+            this.snackbar.color = 'warning'
+          }
           setTimeout(() => this.$router.push({name: 'accounts'}), 2000)
         }).catch((e) => {
           var data = e.response.data

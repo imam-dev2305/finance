@@ -20,6 +20,32 @@ const routes = [
     ],
   },
   {
+    path: '/currency',
+    name: 'currency',
+    component: () => import('@/views/currency/Currency.vue'),
+    redirect: '/currency/list',
+    children: [
+      {
+        path: 'list',
+        name: 'currency-list',
+        meta: { requiresAuth: true },
+        component: () => import('@/views/currency/CurrencyMainLayout.vue'),
+      },
+      {
+        path: 'add',
+        name: 'currency-add',
+        meta: { requiresAuth: true },
+        component: () => import('@/views/currency/CurrencyAddLayout.vue'),
+      },
+      {
+        path: 'edit/:id',
+        name: 'currency-edit',
+        meta: { requiresAuth: true },
+        component: () => import('@/views/currency/CurrencyEditLayout.vue'),
+      },
+    ],
+  },
+  {
     path: '/accounts',
     name: 'accounts',
     component: () => import('@/views/accounts/Account.vue'),
@@ -75,26 +101,40 @@ const routes = [
     path: '/transactions',
     name: 'transactions',
     component: () => import('@/views/transactions/Transaction.vue'),
-    redirect: '/transactions/list',
+    redirect: '/transactions/records/list',
     children: [
       {
-        path: 'list',
-        name: 'transactions-list',
+        path: 'records',
+        name: 'transactions-records',
         meta: { requiresAuth: true },
-        component: () => import('@/views/transactions/TransactionMainLayout.vue'),
+        component: () => import('@/views/transactions/records/Records.vue'),
+        children: [
+          {
+            path: 'list',
+            name: 'transactions-list',
+            meta: { requiresAuth: true },
+            component: () => import('@/views/transactions/records/RecordMainLayout.vue'),
+          },
+          {
+            path: 'add',
+            name: 'transactions-add',
+            meta: { requiresAuth: true },
+            component: () => import('@/views/transactions/records/RecordAddLayout.vue'),
+          },
+          {
+            path: 'edit/:id',
+            name: 'transactions-edit',
+            meta: { requiresAuth: true },
+            component: () => import('@/views/transactions/records/RecordEditLayout.vue'),
+          }
+        ]
       },
       {
-        path: 'add',
-        name: 'transactions-add',
+        path: 'reports',
+        name: 'transactions-reports',
         meta: { requiresAuth: true },
-        component: () => import('@/views/transactions/TransactionsAddLayout.vue'),
+        component: () => import('@/views/transactions/reports/Reports.vue'),
       },
-      {
-        path: 'edit/:id',
-        name: 'transactions-edit',
-        meta: { requiresAuth: true },
-        component: () => import('@/views/transactions/TransactionsEditLayout.vue'),
-      }
     ],
   },
   {
@@ -112,18 +152,6 @@ const routes = [
     meta: {
       layout: 'blank',
     },
-  },
-  {
-    path: '/error-404',
-    name: 'error-404',
-    component: () => import('@/views/Error.vue'),
-    meta: {
-      layout: 'blank',
-    },
-  },
-  {
-    path: '*',
-    redirect: 'error-404',
   },
 ]
 

@@ -3,6 +3,7 @@
     class="vertical-nav-menu-link"
     v-bind="$attrs"
     active-class="bg-gradient-primary white--text"
+    exact-path
   >
     <v-list-item-icon>
       <v-icon

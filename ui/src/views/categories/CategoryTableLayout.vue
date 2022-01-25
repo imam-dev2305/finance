@@ -158,6 +158,8 @@
                       <v-btn
                         icon
                         outlined
+                        :disabled="btn"
+                        :loading="btn"
                         title="Update"
                         color="warning"
                         @click="updateCategory"
@@ -204,6 +206,8 @@
                     <v-btn
                       icon
                       outlined
+                      :disabled="btn"
+                      :loading="btn"
                       @click="saveCategory"
                     >
                       <v-icon>mdi-content-save</v-icon>
@@ -313,10 +317,12 @@
           category_color: '',
           category_icon: '',
         },
+        btn: false,
         iconList: [
-          'mdi-train', 'mdi-car', 'mdi-food', 'mdi-bank', 'mdi-cash-multiple',
-          'mdi-parking', 'mdi-car', 'mdi-gas-station', 'mdi-coffee', 'mdi-tshirt-crew',
-          'mdi-bottle-tonic', 'mdi-currency-usd', 'mdi-hammer-screwdriver',
+          'mdi-train', 'mdi-car', 'mdi-food', 'mdi-bank', 'mdi-cash-multiple', 'mdi-book',
+          'mdi-parking', 'mdi-car', 'mdi-bus', 'mdi-motorbike', 'mdi-gas-station', 'mdi-coffee', 'mdi-tshirt-crew',
+          'mdi-bottle-tonic', 'mdi-currency-usd', 'mdi-hammer-screwdriver', 'mdi-phone', 'mdi-wifi',
+          'mdi-apps', 'mdi-license', 'mdi-flash', 'mdi-water-pump'
         ],
         iconSearch: '',
         optionsContext: [
@@ -394,11 +400,13 @@
       },
       saveCategory() {
         /* eslint-disable */
+        this.btn = !this.btn
         axios.post('categories/save', this.frm, {
           headers: {
             Authorization: `Bearer ${this.$store.getters.bearer}`
           }
         }).then((response) => {
+          this.btn = !this.btn
           this.getListCategories()
           this.dialog = !this.dialog
           this.$refs.frmCategories.reset()
@@ -427,11 +435,13 @@
         })
       },
       updateCategory() {
+        this.btn = !this.btn
         axios.post('categories/edit', this.frmEdit, {
           headers: {
             Authorization: `Bearer ${this.$store.getters.bearer}`
           }
         }).then((response) => {
+          this.btn = !this.btn
           this.optionsClose(this.frmEdit)
           this.getListCategories()
           this.$refs.frmEditCategories.reset()

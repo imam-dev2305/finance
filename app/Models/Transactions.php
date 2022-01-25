@@ -38,10 +38,6 @@ class Transactions extends Model
         return $this->belongsTo(Categories::class, 'category_id', 'category_id');
     }
 
-    public function currencies() {
-        return $this->belongsTo(Currencies::class, 'currency_id', 'currency_id');
-    }
-
     public function transactions_type() {
         return $this->belongsTo(TransactionsTypes::class,'transaction_type_id', 'transaction_type_id');
     }

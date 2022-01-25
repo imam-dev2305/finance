@@ -5,6 +5,7 @@ namespace App\Providers;
 use App\Models\Transactions;
 use App\Policies\AccountPolicy;
 use App\Policies\CategoryPolicy;
+use App\Policies\CurrencyPolicy;
 use App\Policies\TransactionPolicy;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -43,5 +44,9 @@ class AuthServiceProvider extends ServiceProvider
         // Transactions
         Gate::define('update-transactions', [TransactionPolicy::class, 'update']);
         Gate::define('delete-transactions', [TransactionPolicy::class, 'delete']);
+
+        // Currencies
+        Gate::define('update-currencies', [CurrencyPolicy::class, 'update']);
+        Gate::define('delete-currencies', [CurrencyPolicy::class, 'delete']);
     }
 }

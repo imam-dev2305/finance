@@ -4,7 +4,13 @@
       class="overflow-y-auto"
       height="340px"
     >
+      <v-skeleton-loader
+        v-show="skeleton.panel"
+        v-bind="attrs"
+        type="list-item,list-item,list-item,list-item"
+      ></v-skeleton-loader>
       <v-card
+        v-show="!skeleton.panel"
         flat
         elevation="0"
         outlined
@@ -39,10 +45,13 @@
                   </div>
                 </div>
               </v-row>
+              <v-row>
+                <div class="m-font grey--text font-italic text--disabled caption">{{ item.transaction_note }}</div>
+              </v-row>
             </v-col>
             <v-col cols="4" md="5" sm="5" class="align-self-center">
               <v-row class="align-center justify-end"><div class="grey--text m-font">{{ displaydate(item.transaction_date) }}</div></v-row>
-              <v-row class="align-center justify-end"><div :class="`text-right m-font ${item.amount < 0 ? 'red--text':'green--text'}`">{{ `${item.currency_id} ${parseInt(item.amount).toLocaleString('id')}` }}</div></v-row>
+              <v-row class="align-center justify-end"><div :class="`text-right m-font ${item.amount < 0 ? 'red--text':'green--text'}`">{{ `${parseFloat(item.amount).toLocaleString('id', {style: 'currency', currency: item.currency_exchange_name})}` }}</div></v-row>
             </v-col>
             <v-col cols="2" md="1" sm="1" class="text-right">
               <v-menu
@@ -162,6 +171,14 @@
           message: '',
           color: 'success',
         },
+        attrs: {
+          class: 'mb-6',
+          boilerplate: true,
+          elevation: 2,
+        },
+        skeleton: {
+          panel: true,
+        },
       }
     },
     mounted() {
@@ -173,10 +190,20 @@
           headers: {
             Authorization: `Bearer ${this.$store.getters.bearer}`
           }
-        }).then((response) => {
-          const data = response.data.data
-          this.records = data
         })
+          .then((response) => {
+            const data = response.data.data
+            this.records = data
+            this.skeleton.panel = false
+          })
+          .catch((e) => {
+            const data = e.response.data
+            const response = e.response.status
+            if (response === 401) {
+              localStorage.clear();
+              this.$router.push({name: 'pages-login'})
+            }
+          })
       },
 
       displaydate(date) {

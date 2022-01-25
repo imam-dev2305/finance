@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "android-blackout-project",
+  "private_key_id": "a29dce077620f588968dc5913e76e6863afc6a8b",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDCEKS2FPOl5nkq\nfpNRgM2920mEWjDrzQKgfm5v2ky+9duB3cI68Tys/0GQKtOVKqaB+pR+it5IMg+r\nbHi6/X7ndGU5jyq+Oosa+gfmgaVaZWEsOReDR5NFfjI+1W6kAp34+vNPNJUvORI6\nGTHYGb1JJGg0YeASxgUnGD/Or62KJLvpkayJLsCqMYLO0PSdQLYDB3phW5Z8FwD0\nTGzMuq6yYOpVoP8srhgVIDiJN0QB2tdk9Tko1sz+GagZpfLW7c/tw6QJfhJSgkvT\n/z0ywG2Y/+7X060lamMQuRJyXe+Np1B0w0CKnXWn4l52J5sekHGQ9RjAYK9DESvq\nDfcVv8fvAgMBAAECggEAOukffxCcJ/vvQzmaUe8GRcCIMC/K0wHwbrUCpFzB2GQ8\n5s7hM9BgaWmxRujhQtJoKmPdaQ6RzJu5ywGKIsVqHSvlwJPX11hhOua0uEIZ5neJ\nCIoqO5ViPQHCkfVreUk8GEVhz+T39pZeFJnqWh3yKn5tTZ16jmhjTwta70zAIwNc\nxAm0km+itXFPmJQmZpkuevKMAQYsivnwEMsSjL6Fcrxz8LMUrgx7LxdlY/yhEctd\n13RK7tekFeA8SwwCH8tNq8G56UGxv5xL2sN79lRBuWHOdU6mEN7rhr96zTYq7rG5\nhagh8woCNTA9p9PwDjbc21HmTvY2Calx9W2i6OoxoQKBgQD0+eQNCJhGzEYrqO9a\nVGGEpMnSOxQvpxpLhZkK2Nqs8KJ417gmG1ft5jflgT68UzzppxKwXZ6Ec+cD7TF2\nXri+eXCz2z1rFbcjlIHWzZS4/hkmWHym/JQIVn8C18lLrcThyhPwaYpMo7j3YMFF\npEx/T20djSBES9V5nzO55p2ozwKBgQDKzEJ/HlN1USuR53S9ndz1kca+0mJuB5V5\nwteMwOkvhKK5QQgHQVuAgAGcJd58FSsUxBDxnSOXvczhREapV6cKF9tSm3ehl0r0\netG7r5bbCiZ82IAF0x/jo7bg9I9Fun6vJIxN+LwN65+Tq37znzKAw+/4qsFfj10o\nZt7+6nF24QKBgB7l7dee/+XeGfOjyRyxi+M5DaOQhAlGoFBqN1Vg6KPrbfKj8rwL\nstl0shQmaw1BymsGAZtxE29NVxPttNFjPRX5JzfoLST2hjTcpEu9fkae9fkaLA67\nyMgMcNSg9uiusChyXnVyOllURR4efAIWqPddwzt481rp3bELXXDTH4uNAoGBAMXY\nytL7gg6FVw1sEp9e4I+PXacS10ZjDbgRl3rRRW2/Z4V2ZV+2qo9N0sREya6idDo5\nIhKl7HCAkd3/XzSct/EH30fTNr4mPNEQ9Ya2wmUFnRDVouiL1aOfN651yUUMscUq\n0drL3KN0CWXmvN7upDWtcnNWG3ugARGGcu2dSX7hAoGAKi1/vUqtIlhGnjhaGVWZ\nmf1ALJ4HvyQmpWNPYpcK1HUCwnntPVRz6I/ZQfwQF3ZaDP+rp3xVLaKUggfso6Ia\nlt9x2LGFcl9A2mWUiLizx0rBBkzX5oolmW8Uron8A5ec5yvmFvq2jxaK+nw230kb\nc6TjMF/UZ3gFRBrpKWjzqIY=\n-----END PRIVATE KEY-----\n",
+  "client_email": "finance@android-blackout-project.iam.gserviceaccount.com",
+  "client_id": "106156681048566652901",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/finance%40android-blackout-project.iam.gserviceaccount.com"
+}

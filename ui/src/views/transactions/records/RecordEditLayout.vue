@@ -62,7 +62,7 @@
             :items="destination_account"
             item-text="account_name"
             item-value="account_id"
-            v-show="frm.transaction_type_id == 3"
+            v-show="frm.transaction_type_id === 3"
           ></v-select>
 
           <v-text-field
@@ -71,12 +71,12 @@
           ></v-text-field>
 
           <v-text-field
-            v-model="frm.amount"
+            v-model="amount"
             label="amount"
             reverse
             @keyup.stop.native="numberOnly"
-            @blur="currencyOnly"
-            @focus="numbers"
+            @blur="currencyOnly($event,{style: 'currency', currency: frm.currency_exchange_name})"
+            @focus="amount = frm.amount.toString()"
           ></v-text-field>
 
           <v-menu
@@ -235,6 +235,7 @@
           transaction_date: `${yy}-${mm}-${dd}`,
           transaction_time: `${hh}:${ii}:${ss}`,
         },
+        amount: '',
         menu_date: false,
         menu_time: false,
         dialog: {
@@ -276,8 +277,8 @@
         }).then((response) => {
           const data = response.data.data.data
           this.accounts = data
-          if (this.frm.transaction_type_id == 3) {
-            this.accounts.push({account_id: 0, account_name: 'OTHERS'})
+          if (this.frm.transaction_type_id === 3) {
+            this.accounts.push({account_id: "0", account_name: 'OTHERS'})
           }
         }).catch((e) => {
           const response = e.response.data
@@ -312,9 +313,11 @@
           const hh = ('0' + d.getHours()).slice(-2)
           const ii = ('0' + d.getMinutes()).slice(-2)
           const ss = ('0' + d.getSeconds()).slice(-2)
-          this.frm.amount = JSON.parse(data).amount.toLocaleString('id')
+          this.frm.amount = Math.abs(JSON.parse(data).amount)
           this.frm.transaction_date = `${yy}-${mm}-${dd}`
           this.frm.transaction_time = `${hh}:${ii}:${ss}`
+          this.amount = parseFloat(this.frm.amount).toLocaleString('id', {style: 'currency', currency: this.frm.currency_exchange_name, minimumFractionDigits: 2, maximumFractionDigits: 2})
+          this.categories.selected = this.frm.category_name
         })
       },
 
@@ -322,13 +325,13 @@
         var data = new Object();
         data.transaction_type_id = parseInt(this.frm.transaction_type_id)
         if ([3, 2].indexOf(data.transaction_type_id) >= 0) {
-          if (this.frm.amount.replace(/(?:\.)/g, '') < 0) {
-            data.amount = this.frm.amount
+          if (this.frm.amount.toString().replace(/(?:\.)/g, '').replace(/(?:\,)/g, '.') < 0) {
+            data.amount = this.frm.amount.toLocaleString('id')
           } else {
-            data.amount = `-${this.frm.amount}`
+            data.amount = `-${this.frm.amount.toLocaleString('id')}`
           }
         } else {
-          data.amount = this.frm.amount
+          data.amount = this.frm.amount.toLocaleString('id')
         }
         data.transaction_id = this.frm.transaction_id
         data.account_id = this.frm.account_id
@@ -377,6 +380,7 @@
         this.frm.category_id = ''
         this.frm.destination_account_id = ''
         this.frm.amount = ''
+        this.amount = ''
       },
 
       changeDestination() {
@@ -389,27 +393,28 @@
         }).then((response) => {
           const data = response.data.data.data
           this.destination_account = data
-          if (this.frm.account_id !== 0) {
-            this.destination_account.push({account_id: 0, account_name: 'OTHERS'})
+          if (this.frm.account_id !== "0") {
+            this.destination_account.push({account_id: "0", account_name: 'OTHERS'})
           }
+          Object.keys(this.accounts).forEach(function (val) {
+            if (this.accounts[val].account_id === this.frm.account_id) {
+              this.frm.currency_exchange_name = this.accounts[val].currencies.currency_exchange_name
+            }
+          }, this)
         }).catch((e) => {
           const response = e.response.data
         })
       },
 
       numberOnly(e) {
-        if (e.target.value.match(/^([\d]+$)/g) !== null) {
-          e.target.value = e.target.value.toString()
+        // if (e.target.value.match(/^([\d]+$)/g) !== null) {
+        const num = e.target.value
+        if (num.match(/^([\d])+(\.\d{2}|)$/g) !== null) {
+          e.target.value = num.toString()
+          this.frm.amount = parseFloat(num)
         } else {
           // eslint-disable-next-line no-useless-escape
           e.target.value = e.target.value.replace(new RegExp('(\[a-zA-Z]*)', 'g'), '')
-        }
-      },
-
-      numbers(e) {
-        const num = e.target.value.replace(/(?:\.)/g, '')
-        if (num.match(/([\d]+$)/g) !== null) {
-          this.frm.amount = num.toString()
         }
       },
     }

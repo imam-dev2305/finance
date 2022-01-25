@@ -67,7 +67,7 @@
                     <v-col
                       cols="6"
                       class="text-right"
-                    ><i class="white--text">{{account.currency_id}}</i> <span class="white--text">{{account.amount.toLocaleString('id')}}</span></v-col>
+                    ><i class="white--text">{{account.currencies.currency_exchange_name}}</i> <span class="white--text">{{account.amount.toLocaleString('id')}}</span></v-col>
                   </v-row>
                 </div>
               </v-card-text>
@@ -75,17 +75,17 @@
           </router-link>
         </v-col>
       </v-row>
-      <div
-        v-show="!skeleton.table"
-        class="text-center pt-2"
-      >
-        <v-pagination
-          v-model="page"
-          :length="page_count"
-          total-visible="5"
-          @input="handlePageChange"
-        ></v-pagination>
-      </div>
+<!--      <div-->
+<!--        v-show="!skeleton.table"-->
+<!--        class="text-center pt-2"-->
+<!--      >-->
+<!--        <v-pagination-->
+<!--          v-model="page"-->
+<!--          :length="page_count"-->
+<!--          total-visible="5"-->
+<!--          @input="handlePageChange"-->
+<!--        ></v-pagination>-->
+<!--      </div>-->
 
       <v-snackbar
         v-model="snackbar.value"
@@ -105,7 +105,7 @@
     data() {
       return {
         isMobile: false,
-        accounts: [{'hi':'kamu'},{'hi':'kamu'},{'hi':'kamu'},{'hi':'kamu'},{'hi':'kamu'}],
+        accounts: [{currencies: {currency_exchange_name: ''}}],
         loading: false,
         page: 1,
         page_count: 0,
@@ -162,10 +162,12 @@
         ]
       },
     },
+    beforeMount() {
+      this.getAccounts()
+    },
     mounted() {
       this.onResize()
       window.addEventListener('resize', this.onResize, { passive: true })
-      this.getAccounts()
     },
     methods: {
       addAccount() {

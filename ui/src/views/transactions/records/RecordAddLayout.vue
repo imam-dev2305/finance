@@ -71,12 +71,12 @@
           ></v-text-field>
 
           <v-text-field
-            v-model="frm.amount"
+            v-model="amount"
             label="amount"
             reverse
             @keyup.stop.native="numberOnly"
-            @blur="currencyOnly"
-            @focus="numbers"
+            @blur="currencyOnly($event, obj)"
+            @focus="amount = frm.amount.toString().replace(/(?:\.)/g, '').replace(/(?:\,)/g, '.')"
           ></v-text-field>
 
           <v-menu
@@ -213,13 +213,6 @@
 </template>
 
 <script>
-  var d = new Date();
-  var dd = ('0' + d.getDate()).slice(-2)
-  var mm = ('0' + d.getMonth()).slice(-2)
-  var yy = d.getFullYear()
-  var hh = ('0' + d.getHours()).slice(-2)
-  var ii = ('0' + d.getMinutes()).slice(-2)
-  var ss = ('0' + d.getSeconds()).slice(-2)
 
   export default {
     name: 'TransactionsAddLayout',
@@ -231,9 +224,14 @@
           category_id: '',
           destination_account_id: 0,
           transaction_note: '',
-          amount: '',
-          transaction_date: `${yy}-${mm}-${dd}`,
-          transaction_time: `${hh}:${ii}:${ss}`,
+          amount: 0,
+          transaction_date: '',
+          transaction_time: '',
+          currency_exchange_name: 'IDR',
+        },
+        amount: '',
+        obj : {
+          style: 'decimal',
         },
         menu_date: false,
         menu_time: false,
@@ -257,11 +255,25 @@
         },
       }
     },
+    created() {
+      this.DateTime()
+    },
     mounted() {
       this.getCategories()
       this.getAccounts()
     },
     methods: {
+      DateTime() {
+        var d = new Date();
+        var dd = ('0' + d.getDate()).slice(-2)
+        var mm = ('0' + (d.getMonth() + 1)).slice(-2)
+        var yy = d.getFullYear()
+        var hh = ('0' + d.getHours()).slice(-2)
+        var ii = ('0' + d.getMinutes()).slice(-2)
+        var ss = ('0' + d.getSeconds()).slice(-2)
+        this.frm.transaction_date = `${yy}-${mm}-${dd}`
+        this.frm.transaction_time = `${hh}:${ii}:${ss}`
+      },
       getAccounts() {
         axios.post('account/get', {}, {
           headers: {
@@ -292,10 +304,22 @@
       },
 
       saveTransaction() {
-        if (this.frm.transaction_type_id == 2 || (this.frm.transaction_type_id == 3 && this.frm.account_id != 0)) {
-          this.frm.amount = -this.frm.amount
+        let data = new Object();
+        data.transaction_type_id = parseInt(this.frm.transaction_type_id)
+        data.account_id = this.frm.account_id
+        data.category_id = this.frm.category_id
+        data.destination_account_id = this.frm.destination_account_id
+        data.transaction_note = this.frm.transaction_note
+        data.amount = this.frm.amount
+        data.transaction_date = this.frm.transaction_date
+        data.transaction_time = this.frm.transaction_time
+        const new_amount = this.frm.amount.toString()
+        if (this.frm.transaction_type_id === 2 || (this.frm.transaction_type_id === 3 && this.frm.account_id !== 0)) {
+          data.amount = `-${new_amount.replace('/(?:\.)/g', '').replace('/(?:\,)/g', '.')}`
+        } else {
+          data.amount = new_amount.replace('/(?:\.)/g', '').replace('/(?:\,)/g', '.')
         }
-        axios.post('transactions/save', this.frm, {
+        axios.post('transactions/save', data, {
           headers: {
             Authorization: `Bearer ${this.$store.getters.bearer}`
           }
@@ -347,24 +371,29 @@
           if (this.frm.account_id !== 0) {
             this.destination_account.push({account_id: 0, account_name: 'OTHERS'})
           }
+          Object.keys(this.accounts).forEach(function (val) {
+            if (this.accounts[val].account_id === this.frm.account_id) {
+              this.frm.currency_exchange_name = this.accounts[val].currencies.currency_exchange_name
+            }
+          }, this)
+          this.amount = parseFloat(this.frm.amount.toString().replace(/(?:\.)/g, '').replace(/(?:\,)/g, '.')).toLocaleString('id', {style: 'currency', currency: this.frm.currency_exchange_name})
+          this.frm.amount = ''
+          this.obj.style = 'currency'
+          this.obj.currency = this.frm.currency_exchange_name
         }).catch((e) => {
           const response = e.response.data
         })
       },
 
       numberOnly(e) {
-        if (e.target.value.match(/^([\d]+$)/g) !== null) {
-          e.target.value = e.target.value.toString()
+        const num = e.target.value
+        if (e.target.value.match(/^([\d])+(\.\d{2}|)$/g) !== null) {
+          // e.target.value = e.target.value.toString()
+          e.target.value = num.toString()
+          this.frm.amount = parseFloat(num).toLocaleString('id', {minimumFractionDigits: 2, maximumFractionDigits: 2})
         } else {
           // eslint-disable-next-line no-useless-escape
           e.target.value = e.target.value.replace(new RegExp('(\[a-zA-Z]*)', 'g'), '')
-        }
-      },
-
-      numbers(e) {
-        const num = e.target.value.replace(/(?:\.)/g, '')
-        if (num.match(/([\d]+$)/g) !== null) {
-          this.frm.amount = num.toString()
         }
       },
     }

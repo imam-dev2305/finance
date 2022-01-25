@@ -25,7 +25,7 @@
         ></v-img>
         <v-slide-x-transition>
           <h2 class="app-title text--primary">
-            Finance
+            Walletku
           </h2>
         </v-slide-x-transition>
       </router-link>
@@ -41,6 +41,11 @@
         title="Dashboard"
         :to="{ name: 'dashboard' }"
         :icon="icons.mdiHomeOutline"
+      ></nav-menu-link>
+      <nav-menu-link
+        title="Currency"
+        :to="{name: 'currency'}"
+        :icon="icons.mdiCircleMultiple"
       ></nav-menu-link>
       <nav-menu-link
         title="Accounts"
@@ -62,11 +67,7 @@
         ></nav-menu-link>
         <nav-menu-link
           title="Report"
-          :to="{ name: 'pages-register' }"
-        ></nav-menu-link>
-        <nav-menu-link
-          title="Error"
-          :to="{ name: 'error-404' }"
+          :to="{ name: 'transactions-reports' }"
         ></nav-menu-link>
       </nav-menu-group>
       <!--<nav-menu-section-title title="SETTINGS"></nav-menu-section-title>
@@ -93,6 +94,7 @@ import {
   mdiApps,
   mdiWallet,
   mdiAccountCircle,
+  mdiCircleMultiple,
 } from '@mdi/js'
 
 // import NavMenuSectionTitle from './components/NavMenuSectionTitle.vue'
@@ -124,6 +126,7 @@ export default {
         mdiApps,
         mdiWallet,
         mdiAccountCircle,
+        mdiCircleMultiple,
       },
     }
   },

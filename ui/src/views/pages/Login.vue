@@ -9,7 +9,7 @@
             class="d-flex align-center"
           >
             <v-img
-              src="/assets/images/logos/logo.svg"
+              src="/assets/images/logos/finance.png"
               max-height="30px"
               max-width="30px"
               alt="logo"
@@ -18,16 +18,13 @@
             ></v-img>
 
             <h2 class="text-2xl font-weight-semibold">
-              Materio
+              Walletku
             </h2>
           </router-link>
         </v-card-title>
 
         <!-- title -->
         <v-card-text>
-          <p class="text-2xl font-weight-semibold text--primary mb-2">
-            Welcome to Materio! 👋🏻
-          </p>
           <p class="mb-2">
             Please sign-in to your account and start the adventure
           </p>
@@ -95,6 +92,8 @@
               block
               color="primary"
               class="mt-6"
+              :disabled="btn"
+              :loading="btn"
               @click="loginUser"
             >
               Login
@@ -219,16 +218,20 @@
           success: false,
         },
         alert_message: '',
+        btn: false,
       }
     },
     methods: {
       loginUser() {
         /* eslint-disable */
+        this.btn = !this.btn
         axios.post('/login', this.frmLogin).then((response) => {
+          this.btn = !this.btn
           var data = response.data
           this.$store.commit('USER_LOGIN', data.data)
           this.$router.push('/')
         }).catch(e => {
+          this.btn = !this.btn
           var data = e.response.data
           switch (data.flag) {
             case 2:

@@ -5,6 +5,7 @@ import preset from './default-preset/preset'
 
 Vue.use(Vuetify)
 
+var tema = localStorage.getItem('theme') === 'dark' ? true : false
 export default new Vuetify({
   preset,
   icons: {
@@ -15,5 +16,6 @@ export default new Vuetify({
       customProperties: true,
       variations: false,
     },
+    dark: tema,
   },
 })

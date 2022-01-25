@@ -15,7 +15,7 @@ use Ramsey\Uuid\Uuid;
 class AccountsController extends Controller
 {
     function get(Request $request) {
-        $account = Accounts::Exclude($request)->where('user_id', '=', $request->user()->user_id);
+        $account = Accounts::with('currencies')->Exclude($request)->where('user_id', '=', $request->user()->user_id);
         $accounts = $account->get();
         $response = ['flag' => 1, 'data' => ["recordsTotal" => $accounts->count(), "data" => $accounts], 'message' => 'record has been fetched!'];
         return Response::json($response, 200);
@@ -37,6 +37,7 @@ class AccountsController extends Controller
             $account->account_type_id = $request->account_type_id;
             $account->amount = preg_replace('/(?:\.)/', '$1', $request->amount);
             $account->currency_id = $request->currency_id;
+            $account->deleteable = 1;
             $account->exclude_from_stat = 0;
             $account->color = $request->color;
             $account->user_id = $request->user()->user_id;
@@ -71,8 +72,12 @@ class AccountsController extends Controller
     function delete(Request $request) {
         $accounts = Accounts::findOrFail($request->account_id);
         if (Gate::allows('delete-accounts', $accounts)) {
-            $accounts->delete();
-            return Response::json(['flag' => 1, 'data' => [], 'message' => 'Record deleted!'], 200);
+            if ($accounts->deleteable === 1) {
+                $accounts->delete();
+                return Response::json(['flag' => 1, 'data' => [], 'message' => 'Record deleted!'], 200);
+            } else {
+                return Response::json(['flag' => 2, 'data' => [], 'message' => 'This account can\'t be deleted'], 200);
+            }
         }
     }
 
@@ -103,7 +108,7 @@ class AccountsController extends Controller
             ],
             'currency_id' => [
                 'required',
-                'exists:currencies,currency_id'
+                'exists:currencies_exchange,currency_exchange_id'
             ],
             'amount' => [
                 'required',
@@ -112,6 +117,9 @@ class AccountsController extends Controller
                         $fail('The '.$attribute.' should be integer');
                     }
                 }
+            ],
+            'color' => [
+                'required'
             ]
         ], [], $validator_custom_attribute);
         if ($validator->fails()) {
