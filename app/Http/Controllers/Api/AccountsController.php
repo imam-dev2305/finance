@@ -15,7 +15,7 @@ use Ramsey\Uuid\Uuid;
 class AccountsController extends Controller
 {
     function get(Request $request) {
-        $account = Accounts::with('currencies')->Exclude($request)->where('user_id', '=', $request->user()->user_id);
+        $account = Accounts::Exclude($request)->where('user_id', '=', $request->user()->user_id)->with('currencies');
         $accounts = $account->get();
         $response = ['flag' => 1, 'data' => ["recordsTotal" => $accounts->count(), "data" => $accounts], 'message' => 'record has been fetched!'];
         return Response::json($response, 200);

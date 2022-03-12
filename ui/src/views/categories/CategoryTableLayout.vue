@@ -22,9 +22,9 @@
             slot-scope="{child}"
           >
             <Expands
-              v-if="(child.categories.length > 0)"
+              v-if="(child.children_categories.length > 0)"
               :ref="child.category_id"
-              :categories="child.categories"
+              :categories="child.children_categories"
               :parent-color="child.category_color"
             >
               <template

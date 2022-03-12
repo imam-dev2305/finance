@@ -28,8 +28,11 @@ class CategoriesUserController extends Controller
             ->with('childrenCategories', function ($query) use ($request) {
                 $query->orWhereNull('user_id');
                 $query->where('user_id', $request->user()->user_id);
-                $query->with('categories', function ($q) use ($request) {
+                $query->with('childrenCategories', function ($q) use ($request) {
                     $q->where('user_id', $request->user()->user_id);
+                    $q->with('childrenCategories', function ($qq) use ($request) {
+                       $qq->where('user_id', $request->user()->user_id);
+                    });
                 });
             })
             ->orderBy('category_name', 'asc')

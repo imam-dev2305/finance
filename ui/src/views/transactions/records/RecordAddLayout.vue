@@ -229,6 +229,7 @@
           transaction_time: '',
           currency_exchange_name: 'IDR',
         },
+        bearer: this.$store.getters.bearer,
         amount: '',
         obj : {
           style: 'decimal',
@@ -259,8 +260,8 @@
       this.DateTime()
     },
     mounted() {
-      this.getCategories()
       this.getAccounts()
+      this.getCategories()
     },
     methods: {
       DateTime() {
@@ -277,7 +278,7 @@
       getAccounts() {
         axios.post('account/get', {}, {
           headers: {
-            Authorization: `Bearer ${this.$store.getters.bearer}`,
+            Authorization: `Bearer ${this.bearer}`,
           },
         }).then((response) => {
           const data = response.data.data.data
@@ -293,7 +294,7 @@
       getCategories() {
         axios.get('categories/get', {
           headers: {
-            Authorization: `Bearer ${this.$store.getters.bearer}`
+            Authorization: `Bearer ${this.bearer}`
           }
         }).then((response) => {
           const data = response.data.data
@@ -321,7 +322,7 @@
         }
         axios.post('transactions/save', data, {
           headers: {
-            Authorization: `Bearer ${this.$store.getters.bearer}`
+            Authorization: `Bearer ${this.bearer}`
           }
         }).then((response) => {
           const data = response.data
@@ -335,15 +336,10 @@
       },
 
       showChildPanels(item) {
-        if ((item.hasOwnProperty('children_categories') && item.children_categories.length > 0) || (item.hasOwnProperty('categories') && item.categories.length > 0)) {
+        if (item.children_categories.length > 0) {
           this.categories.prev_list.push(this.categories.current_list)
-          if (item.hasOwnProperty('children_categories')) {
-            this.categories.current_list = item.children_categories
-            item.children_categories = []
-          } else {
-            this.categories.current_list = item.categories
-            item.categories = []
-          }
+          this.categories.current_list = item.children_categories
+          item.children_categories = []
           this.categories.current_list.unshift(item)
         } else {
           this.frm.category_id = item.category_id
@@ -368,7 +364,7 @@
           exclude: this.frm.account_id
         }, {
           headers: {
-            Authorization: `Bearer ${this.$store.getters.bearer}`,
+            Authorization: `Bearer ${this.bearer}`,
           },
         }).then((response) => {
           const data = response.data.data.data

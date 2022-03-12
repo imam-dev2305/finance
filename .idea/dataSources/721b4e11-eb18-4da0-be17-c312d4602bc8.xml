@@ -1378,7 +1378,7 @@
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
     <view id="351" parent="3" name="transactionuser">
-      <SourceTextLength>2815</SourceTextLength>
+      <SourceTextLength>2156</SourceTextLength>
       <Definer>root@localhost</Definer>
     </view>
     <routine id="352" parent="3" name="sp_categories">
