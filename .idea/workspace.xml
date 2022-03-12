@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8f68ed7-5cb8-4928-a7e9-5b5f1f61f16d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/CurrenciesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CurrenciesSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/UserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/UserSeeder.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -466,7 +465,7 @@
       <workItem from="1647045467749" duration="3893000" />
       <workItem from="1647051216922" duration="8638000" />
       <workItem from="1647070425667" duration="2461000" />
-      <workItem from="1647093342430" duration="779000" />
+      <workItem from="1647093342430" duration="1052000" />
     </task>
     <servers />
   </component>
@@ -490,22 +489,22 @@
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="0" y="0" key="FileDocumentManager.FileCacheConflict/0.0.1366.738@0.0.1366.738" timestamp="1643268251469" />
-    <state width="1106" height="160" key="GridCell.Tab.0.bottom" timestamp="1647093920657">
+    <state width="1106" height="160" key="GridCell.Tab.0.bottom" timestamp="1647094192564">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1106" height="160" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1647093920657" />
-    <state width="1106" height="160" key="GridCell.Tab.0.center" timestamp="1647093920657">
+    <state width="1106" height="160" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1647094192564" />
+    <state width="1106" height="160" key="GridCell.Tab.0.center" timestamp="1647094192564">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1106" height="160" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1647093920657" />
-    <state width="1106" height="160" key="GridCell.Tab.0.left" timestamp="1647093920656">
+    <state width="1106" height="160" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1647094192564" />
+    <state width="1106" height="160" key="GridCell.Tab.0.left" timestamp="1647094192564">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1106" height="160" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1647093920656" />
-    <state width="1106" height="160" key="GridCell.Tab.0.right" timestamp="1647093920657">
+    <state width="1106" height="160" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1647094192564" />
+    <state width="1106" height="160" key="GridCell.Tab.0.right" timestamp="1647094192564">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1106" height="160" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1647093920657" />
+    <state width="1106" height="160" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1647094192564" />
     <state x="544" y="262" width="319" height="222" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1647051367115">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
