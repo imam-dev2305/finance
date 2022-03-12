@@ -20,10 +20,10 @@ class CreateAccountsTable extends Migration
             $table->string('bank_account_number', 25)->nullable(true);
             $table->integer('account_type_id');
             $table->double('amount', 12, 2)->default(0);
-            $table->char('currency_id', 3);
+            $table->string('currency_id');
             $table->string('color', 50);
             $table->boolean('exclude_from_stat')->default(0);
-            $table->string('user_id')->index();
+            $table->string('user_id');
             $table->timestamps();
         });
     }

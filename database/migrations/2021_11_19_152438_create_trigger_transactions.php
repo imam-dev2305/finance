@@ -13,12 +13,36 @@ class CreateTriggerTransactions extends Migration
      */
     public function up()
     {
-        DB::unprepared('create trigger delete_account
+        DB::unprepared('create trigger delete_saldo
     after delete
-    on accounts for each row
-    begin
-        delete from transactions where transactions.account_id = old.account_id;
+    on transactions
+    for each row
+begin
+        update accounts set amount = amount - old.amount where account_id = old.account_id;
     end;');
+
+        DB::unprepared('create trigger insert_saldo
+    after insert
+    on transactions
+    for each row
+begin
+        update accounts set amount = amount + new.amount where account_id = new.account_id;
+    end;');
+
+        DB::unprepared('create trigger update_saldo
+    after update
+    on transactions
+    for each row
+begin
+        if (old.account_id != new.account_id) then
+            update accounts set amount = amount - old.amount where account_id = old.account_id;
+            update accounts set amount = amount + new.amount where account_id = new.account_id;
+        else
+            update accounts set amount = amount - old.amount where account_id = new.account_id;
+            update accounts set amount = amount + new.amount where account_id = new.account_id;
+        end if;
+    end;
+');
     }
 
     /**
@@ -28,6 +52,8 @@ class CreateTriggerTransactions extends Migration
      */
     public function down()
     {
-        DB::unprepared('DROP TRIGGER delete_account');
+        DB::unprepared('DROP TRIGGER delete_saldo');
+        DB::unprepared('DROP TRIGGER insert_saldo');
+        DB::unprepared('DROP TRIGGER update_saldo');
     }
 }

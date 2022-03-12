@@ -16,20 +16,32 @@ use Ramsey\Uuid\Uuid;
 class CategoriesUserController extends Controller
 {
     function get(Request $request) {
-        $category = Categories::with(['CategoriesUser' => function ($query) use ($request) {
-            $query->where('user_id', '=', $request->user()->user_id);
-        }]);
-        $totalCategories = $category->paginate(10);
-        $categories = DB::select(DB::raw('call sp_categories(?)'), [$request->user()->user_id]);
-//        $categories = Categories::find('1100')->CategoriesUser()->where('user_id', 'f91ec94e-153b-11ec-a39f-107b4430fda1')->get();
-        $response = ['flag' => 1, 'data' => ["recordsTotal" => $totalCategories->perPage(), "recordsFiltered" => $totalCategories->total(), 'data' => $categories[0]->data], 'message' => 'record has been fetched!'];
+//        $category = Categories::with(['CategoriesUser' => function ($query) use ($request) {
+//            $query->where('user_id', '=', $request->user()->user_id);
+//        }]);
+//        $totalCategories = $category->paginate(10);
+//        $categories = DB::select(DB::raw('call sp_categories(?)'), [$request->user()->user_id]);
+////        $categories = Categories::find('1100')->CategoriesUser()->where('user_id', 'f91ec94e-153b-11ec-a39f-107b4430fda1')->get();
+//        $response = ['flag' => 1, 'data' => ["recordsTotal" => $totalCategories->perPage(), "recordsFiltered" => $totalCategories->total(), 'data' => $categories[0]->data], 'message' => 'record has been fetched!'];
+
+        $categories = Categories::whereNull('category_parent')
+            ->with('childrenCategories', function ($query) use ($request) {
+                $query->orWhereNull('user_id');
+                $query->where('user_id', $request->user()->user_id);
+                $query->with('categories', function ($q) use ($request) {
+                    $q->where('user_id', $request->user()->user_id);
+                });
+            })
+            ->orderBy('category_name', 'asc')
+            ->get();
+        $response = ['flag' => 1, 'data' => $categories, 'messages' => 'Record has been fetched'];
         return Response::json($response, 200);
     }
 
     function save(Request $request) {
         $validate = $this->validation($request);
         if ($validate['flag'] === 1) {
-            $categories = new CategoriesUser;
+            $categories = new Categories;
             $categories->category_id = Uuid::uuid1();
             $categories->category_parent = $request->category_parent;
             $categories->category_name = $request->category_name;
@@ -47,7 +59,7 @@ class CategoriesUserController extends Controller
     function edit(Request $request) {
         $validate = $this->validation($request);
         if ($validate['flag'] === 1) {
-            $categories_user = CategoriesUser::find($request->category_id);
+            $categories_user = Categories::find($request->category_id);
             if (Gate::allows('update-categories', $categories_user)) {
                 $categories_user->category_name = $request->category_name;
                 $categories_user->category_icon = $request->category_icon;
@@ -63,7 +75,7 @@ class CategoriesUserController extends Controller
     }
 
     function delete(Request $request) {
-        $categories = CategoriesUser::findOrFail($request->category_id);
+        $categories = Categories::findOrFail($request->category_id);
         if (Gate::allows('delete-categories', $categories)) {
             $categories->delete();
             return Response::json(['flag' => 1, 'data' => [], 'message' => 'Record deleted!'], 200);

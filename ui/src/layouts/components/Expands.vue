@@ -53,7 +53,7 @@
         :idx="i"
       >
         <v-expansion-panel-content
-          v-if="item.child.length > 0 || Boolean(item.category_parent)"
+          v-if="((item.hasOwnProperty('children_categories') && item.children_categories.length > 0) || (item.hasOwnProperty('categories') && item.categories.length > 0)) || Boolean(item.category_parent)"
           :color="colour(item)"
         >
           <slot

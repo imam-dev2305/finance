@@ -14,7 +14,11 @@ class Categories extends Model
     protected $hidden = ['created_at', 'updated_at'];
     public $incrementing = false;
 
-    function CategoriesUser() {
-        return $this->hasMany(CategoriesUser::class, 'category_parent', 'category_id');
+    function categories() {
+        return $this->hasMany(Categories::class, 'category_parent', 'category_id');
+    }
+
+    function childrenCategories() {
+        return $this->hasMany(Categories::class, 'category_parent', 'category_id');
     }
 }

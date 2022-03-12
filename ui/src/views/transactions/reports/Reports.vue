@@ -122,7 +122,7 @@
             </template>
             <v-list-group
               sub-group
-              v-for="(ichild, c) in incomes.child"
+              v-for="(ichild, c) in income.child"
               prepend-icon=""
               :key="c"
             >

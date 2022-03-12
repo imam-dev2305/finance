@@ -1,0 +1,15 @@
+INSERT INTO financial.migrations (id, migration, batch) VALUES (28, '2014_10_12_000000_create_users_table', 1);
+INSERT INTO financial.migrations (id, migration, batch) VALUES (29, '2014_10_12_100000_create_password_resets_table', 1);
+INSERT INTO financial.migrations (id, migration, batch) VALUES (30, '2019_08_19_000000_create_failed_jobs_table', 1);
+INSERT INTO financial.migrations (id, migration, batch) VALUES (31, '2019_12_14_000001_create_personal_access_tokens_table', 1);
+INSERT INTO financial.migrations (id, migration, batch) VALUES (32, '2021_03_15_011951_create_accounts_table', 1);
+INSERT INTO financial.migrations (id, migration, batch) VALUES (33, '2021_03_15_023357_create_currencies_table', 1);
+INSERT INTO financial.migrations (id, migration, batch) VALUES (34, '2021_03_15_024105_create_account_types_table', 1);
+INSERT INTO financial.migrations (id, migration, batch) VALUES (35, '2021_03_15_113215_create_categories_table', 1);
+INSERT INTO financial.migrations (id, migration, batch) VALUES (37, '2021_03_15_115056_create_transactions_types_table', 1);
+INSERT INTO financial.migrations (id, migration, batch) VALUES (38, '2021_03_26_135206_create_categories_user_table', 1);
+INSERT INTO financial.migrations (id, migration, batch) VALUES (39, '2021_11_19_152438_create_trigger_transactions', 1);
+INSERT INTO financial.migrations (id, migration, batch) VALUES (40, '2021_11_19_153321_create_sp_categories', 1);
+INSERT INTO financial.migrations (id, migration, batch) VALUES (41, '2021_03_15_115045_create_transactions_table', 2);
+INSERT INTO financial.migrations (id, migration, batch) VALUES (42, '2021_03_15_023358_create_currencies_exchange_table', 3);
+INSERT INTO financial.migrations (id, migration, batch) VALUES (43, '2022_01_17_084405_add_accounts_table_deleteable', 4);

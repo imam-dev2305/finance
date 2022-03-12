@@ -25,7 +25,7 @@ class CreateTransactionsTable extends Migration
             $table->string('destination_account_id')->nullable();
             $table->dateTime('transaction_date');
             $table->string('transaction_note', 100)->nullable(true);
-            $table->string('transaction_payee', 100)->nullable(true);
+            $table->string('transaction_ref', 250)->nullable(true);
             $table->enum('status', ['0', '1', '2'])->comment('0 = Reconciled / Rekonsiliasi, 1 = Cleared / Lunas, 2 = Uncleared / Belum lunas');
             $table->string('user_id');
             $table->timestamps();

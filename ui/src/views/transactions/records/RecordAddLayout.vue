@@ -296,7 +296,7 @@
             Authorization: `Bearer ${this.$store.getters.bearer}`
           }
         }).then((response) => {
-          const data = JSON.parse(response.data.data.data)
+          const data = response.data.data
           this.categories.current_list = [...data]
         }).catch((e) => {
           const response = e.response.data
@@ -335,10 +335,15 @@
       },
 
       showChildPanels(item) {
-        if (item.child.length > 0) {
+        if ((item.hasOwnProperty('children_categories') && item.children_categories.length > 0) || (item.hasOwnProperty('categories') && item.categories.length > 0)) {
           this.categories.prev_list.push(this.categories.current_list)
-          this.categories.current_list = item.child
-          item.child = []
+          if (item.hasOwnProperty('children_categories')) {
+            this.categories.current_list = item.children_categories
+            item.children_categories = []
+          } else {
+            this.categories.current_list = item.categories
+            item.categories = []
+          }
           this.categories.current_list.unshift(item)
         } else {
           this.frm.category_id = item.category_id

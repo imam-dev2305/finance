@@ -2,48 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8f68ed7-5cb8-4928-a7e9-5b5f1f61f16d" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/ui/src/components/MaterialCard.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/components/app/Card.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/plugins/app.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/plugins/index.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ui/src/views/profile/Profile.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/721b4e11-eb18-4da0-be17-c312d4602bc8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/721b4e11-eb18-4da0-be17-c312d4602bc8.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jurnal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jurnal.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/AccountsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/AccountsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/CurrenciesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CurrenciesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/Oauth2.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/Oauth2.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/TransactionsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/TransactionsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Accounts.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Accounts.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Currencies.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Currencies.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Transactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Transactions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_15_023357_create_currencies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_15_023357_create_currencies_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeders/CategoriesSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeders/CategoriesSeeder.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/assets/images/logos/finance.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/assets/images/logos/finance.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/CategoriesUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CategoriesUserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Models/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Categories.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Policies/CategoryPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/CategoryPolicy.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_15_011951_create_accounts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_15_011951_create_accounts_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_15_113215_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_15_113215_create_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_15_115045_create_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_15_115045_create_transactions_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2021_11_19_152438_create_trigger_transactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_11_19_152438_create_trigger_transactions.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/assets/images/logos/finance.png" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/assets/images/logos/finance.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/layouts/Content.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/layouts/Content.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/components/UpgradeToPro.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/components/UpgradeToPro.vues" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/layouts/components/AppBarUserMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/layouts/components/AppBarUserMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/layouts/components/ThemeSwitcher.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/layouts/components/ThemeSwitcher.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/layouts/components/vertical-nav-menu/VerticalNavMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/layouts/components/vertical-nav-menu/VerticalNavMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/layouts/components/vertical-nav-menu/components/NavMenuLink.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/layouts/components/vertical-nav-menu/components/NavMenuLink.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/mixin/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/mixin/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/plugins/vuetify/default-preset/preset/classes.scss" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/plugins/vuetify/default-preset/preset/classes.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/plugins/vuetify/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/plugins/vuetify/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/layouts/components/Expands.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/layouts/components/Expands.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/accounts/AccountEditFormLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/accounts/AccountEditFormLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/accounts/AccountFormLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/accounts/AccountFormLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/accounts/AccountTableLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/accounts/AccountTableLayout.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ui/src/views/categories/CategoryTableLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/categories/CategoryTableLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/dashboard/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/dashboard/Dashboard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/pages/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/pages/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/pages/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/pages/Register.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/transactions/Transaction.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/transactions/Transaction.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/transactions/TransactionMainLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/transactions/records/RecordMainLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/transactions/TransactionsAddLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/transactions/records/RecordAddLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/transactions/TransactionsEditLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/transactions/records/RecordEditLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/views/transactions/records/RecordAddLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/transactions/records/RecordAddLayout.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ui/src/views/transactions/reports/Reports.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/transactions/reports/Reports.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +77,39 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="financial: schema" type="ebfa3cd1:MariaImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="account_types: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="financial@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="financial: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="accounts: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="financial@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="financial: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="categories: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="financial@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="financial: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="categories_user: table" type="dbc44a63:MariaImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="financial@localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="financial: schema" type="ebfa3cd1:MariaImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="currencies: table" type="dbc44a63:MariaImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -146,8 +159,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Vue Single File Component" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -298,7 +311,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="database.data.extractors.current.id" value="Tab-separated (TSV)_id" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/ui/src/views/transactions/records" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Frontend/financial" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="database.main" />
     <property name="ts.external.directory.path" value="D:\Program Files\JetBrains\PhpStorm 2019.3.4\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
@@ -334,7 +347,17 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="financial@localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@695c4468" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@19f8f3ed" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="financial@localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@115a0f53" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="financial@localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@714a29e5" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -476,6 +499,10 @@
       <workItem from="1642381495296" duration="16233000" />
       <workItem from="1642996697298" duration="1783000" />
       <workItem from="1643082981579" duration="2262000" />
+      <workItem from="1643257188373" duration="9604000" />
+      <workItem from="1644916198071" duration="1615000" />
+      <workItem from="1647045467749" duration="3893000" />
+      <workItem from="1647051216922" duration="7400000" />
     </task>
     <servers />
   </component>
@@ -483,82 +510,62 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="275" y="30" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1637296045502">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="275" y="30" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.738@0.0.1366.738" timestamp="1637296045502" />
     <state x="413" y="127" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1639973722670">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="413" y="127" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.738@0.0.1366.738" timestamp="1639973722670" />
-    <state x="92" y="92" width="1182" height="554" key="DiffContextDialog" timestamp="1637764859306">
+    <state x="363" y="177" key="DUMP_DIALOG_DIMENSION_KEY" timestamp="1647048958518">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="92" y="92" width="1182" height="554" key="DiffContextDialog/0.0.1366.738@0.0.1366.738" timestamp="1637764859306" />
-    <state x="463" y="127" key="FileChooserDialogImpl" timestamp="1639834625538">
+    <state x="363" y="177" key="DUMP_DIALOG_DIMENSION_KEY/0.0.1366.738@0.0.1366.738" timestamp="1647048958518" />
+    <state x="463" y="127" key="FileChooserDialogImpl" timestamp="1647049308381">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="463" y="127" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1639834625538" />
-    <state x="122" y="0" key="FileDocumentManager.FileCacheConflict" timestamp="1637763752527">
+    <state x="463" y="127" key="FileChooserDialogImpl/0.0.1366.738@0.0.1366.738" timestamp="1647049308381" />
+    <state x="0" y="0" key="FileDocumentManager.FileCacheConflict" timestamp="1643268251469">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="122" y="0" key="FileDocumentManager.FileCacheConflict/0.0.1366.738@0.0.1366.738" timestamp="1637763752527" />
-    <state width="1106" height="162" key="GridCell.Tab.0.bottom" timestamp="1642407053171">
+    <state x="0" y="0" key="FileDocumentManager.FileCacheConflict/0.0.1366.738@0.0.1366.738" timestamp="1643268251469" />
+    <state width="1106" height="160" key="GridCell.Tab.0.bottom" timestamp="1647059156213">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1106" height="162" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1642407053171" />
-    <state width="1106" height="162" key="GridCell.Tab.0.center" timestamp="1642407053171">
+    <state width="1106" height="160" key="GridCell.Tab.0.bottom/0.0.1366.738@0.0.1366.738" timestamp="1647059156213" />
+    <state width="1106" height="160" key="GridCell.Tab.0.center" timestamp="1647059156213">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1106" height="162" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1642407053171" />
-    <state width="1106" height="162" key="GridCell.Tab.0.left" timestamp="1642407053171">
+    <state width="1106" height="160" key="GridCell.Tab.0.center/0.0.1366.738@0.0.1366.738" timestamp="1647059156213" />
+    <state width="1106" height="160" key="GridCell.Tab.0.left" timestamp="1647059156213">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1106" height="162" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1642407053171" />
-    <state width="1106" height="162" key="GridCell.Tab.0.right" timestamp="1642407053171">
+    <state width="1106" height="160" key="GridCell.Tab.0.left/0.0.1366.738@0.0.1366.738" timestamp="1647059156213" />
+    <state width="1106" height="160" key="GridCell.Tab.0.right" timestamp="1647059156213">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state width="1106" height="162" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1642407053171" />
-    <state x="450" y="203" key="NewPhpClassDialog" timestamp="1634875941504">
+    <state width="1106" height="160" key="GridCell.Tab.0.right/0.0.1366.738@0.0.1366.738" timestamp="1647059156213" />
+    <state x="544" y="262" width="319" height="222" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1647051367115">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="450" y="203" key="NewPhpClassDialog/0.0.1366.738@0.0.1366.738" timestamp="1634875941504" />
-    <state x="517" y="300" key="NewPhpFileDialog" timestamp="1634868577941">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="517" y="300" key="NewPhpFileDialog/0.0.1366.738@0.0.1366.738" timestamp="1634868577941" />
-    <state x="186" y="14" key="SettingsEditor" timestamp="1637308861621">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="186" y="14" key="SettingsEditor/0.0.1366.738@0.0.1366.738" timestamp="1637308861621" />
-    <state x="544" y="262" width="319" height="222" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1639981110515">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="544" y="262" width="319" height="222" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.738@0.0.1366.738" timestamp="1639981110515" />
-    <state x="484" y="202" width="398" height="328" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog" timestamp="1637296448672">
-      <screen x="0" y="0" width="1366" height="738" />
-    </state>
-    <state x="484" y="202" width="398" height="328" key="com.intellij.database.psi.DbRenamePsiElementProcessor.DbRenameDialog/0.0.1366.738@0.0.1366.738" timestamp="1637296448672" />
+    <state x="544" y="262" width="319" height="222" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/0.0.1366.738@0.0.1366.738" timestamp="1647051367115" />
     <state x="437" y="126" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1642405890345">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
     <state x="437" y="126" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.1366.738@0.0.1366.738" timestamp="1642405890345" />
-    <state x="392" y="19" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1639829904709">
+    <state x="392" y="19" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1647051416219">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="392" y="19" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1366.738@0.0.1366.738" timestamp="1639829904709" />
-    <state x="0" y="0" key="com.intellij.database.view.ui.DatabasePreviewDialog" timestamp="1641961306963">
+    <state x="392" y="19" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/0.0.1366.738@0.0.1366.738" timestamp="1647051416219" />
+    <state x="0" y="0" key="com.intellij.database.view.ui.DatabasePreviewDialog" timestamp="1647058001161">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="0" y="0" key="com.intellij.database.view.ui.DatabasePreviewDialog/0.0.1366.738@0.0.1366.738" timestamp="1641961306963" />
-    <state x="391" y="194" key="com.intellij.ide.util.TipDialog" timestamp="1643083171837">
+    <state x="0" y="0" key="com.intellij.database.view.ui.DatabasePreviewDialog/0.0.1366.738@0.0.1366.738" timestamp="1647058001161" />
+    <state x="391" y="194" key="com.intellij.ide.util.TipDialog" timestamp="1647051226211">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="391" y="194" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1643083171837" />
-    <state x="390" y="125" width="710" height="546" key="find.popup" timestamp="1642387115538">
+    <state x="391" y="194" key="com.intellij.ide.util.TipDialog/0.0.1366.738@0.0.1366.738" timestamp="1647051226211" />
+    <state x="390" y="125" width="710" height="546" key="find.popup" timestamp="1643265107080">
       <screen x="0" y="0" width="1366" height="738" />
     </state>
-    <state x="390" y="125" width="710" height="546" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1642387115538" />
+    <state x="390" y="125" width="710" height="546" key="find.popup/0.0.1366.738@0.0.1366.738" timestamp="1643265107080" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -569,18 +576,9 @@
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/ui/src/main.js</url>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/ui/src/views/transactions/records/RecordAddLayout.vue</url>
           <line>222</line>
           <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="OracleBreakpointType">
-          <url>file://$APPLICATION_CONFIG_DIR$/consoles/db/721b4e11-eb18-4da0-be17-c312d4602bc8/Report_sp.sql</url>
-          <line>18</line>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

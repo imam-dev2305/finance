@@ -21,13 +21,13 @@ class CategoryPolicy
         //
     }
 
-    function update(User $user, CategoriesUser $categories) {
+    function update(User $user, Categories $categories) {
         return $user->user_id === $categories->user_id
             ? Response::allow()
             : Response::deny("You don't have access to perform actions");
     }
 
-    function delete(User $user, CategoriesUser $categories) {
+    function delete(User $user, Categories $categories) {
         return $user->user_id === $categories->user_id
             ? Response::allow()
             : Response::deny("You don't have access to perform actions");

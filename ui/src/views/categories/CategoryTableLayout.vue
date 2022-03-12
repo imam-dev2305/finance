@@ -14,7 +14,7 @@
         slot-scope="{child}"
       >
         <Expands
-          :categories="child.child"
+          :categories="child.children_categories"
           :parent-color="child.category_color"
         >
           <template
@@ -22,9 +22,9 @@
             slot-scope="{child}"
           >
             <Expands
-              v-if="child.child.length > 0"
+              v-if="(child.categories.length > 0)"
               :ref="child.category_id"
-              :categories="child.child"
+              :categories="child.categories"
               :parent-color="child.category_color"
             >
               <template
@@ -381,7 +381,8 @@
           }
         })
           .then((response) => {
-            var data = JSON.parse(response.data.data.data)
+            var data = response.data.data
+            console.log(data)
             this.listCategories = data
             this.skeleton.panel = false
           })
