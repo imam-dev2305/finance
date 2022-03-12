@@ -2,29 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d8f68ed7-5cb8-4928-a7e9-5b5f1f61f16d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ui/src/components/MaterialCard.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/components/app/Card.vue" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/plugins/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/plugins/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ui/src/views/profile/Profile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/721b4e11-eb18-4da0-be17-c312d4602bc8.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/721b4e11-eb18-4da0-be17-c312d4602bc8.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Api/CategoriesUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Api/CategoriesUserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Categories.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Categories.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/CategoryPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/CategoryPolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_15_011951_create_accounts_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_15_011951_create_accounts_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_15_113215_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_15_113215_create_categories_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_03_15_115045_create_transactions_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_03_15_115045_create_transactions_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2021_11_19_152438_create_trigger_transactions.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_11_19_152438_create_trigger_transactions.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/ui/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/components/UpgradeToPro.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/components/UpgradeToPro.vues" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/layouts/components/AppBarUserMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/layouts/components/AppBarUserMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/layouts/components/Expands.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/layouts/components/Expands.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/main.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/categories/CategoryTableLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/categories/CategoryTableLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/transactions/records/RecordAddLayout.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/transactions/records/RecordAddLayout.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ui/src/views/transactions/reports/Reports.vue" beforeDir="false" afterPath="$PROJECT_DIR$/ui/src/views/transactions/reports/Reports.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -502,7 +481,7 @@
       <workItem from="1643257188373" duration="9604000" />
       <workItem from="1644916198071" duration="1615000" />
       <workItem from="1647045467749" duration="3893000" />
-      <workItem from="1647051216922" duration="7400000" />
+      <workItem from="1647051216922" duration="7998000" />
     </task>
     <servers />
   </component>
